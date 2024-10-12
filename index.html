@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,17 +7,30 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
     <style>
         :root {
+            --bg-color: #ffffff;
+            --text-color: #333333;
+            --highlight-color: #007acc;
+            --secondary-color: #f0f0f0;
+            --header-color: #1a1a1a;
+            --card-bg: #ffffff;
+            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .dark {
             --bg-color: #0a192f;
             --text-color: #8892b0;
             --highlight-color: #64ffda;
-            --secondary-color: #233554;
+            --secondary-color: #112240;
             --header-color: #ccd6f6;
+            --card-bg: #112240;
+            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         body {
@@ -34,7 +47,7 @@
         }
 
         header {
-            padding: 30px 0;
+            padding: 20px 0;
             position: fixed;
             width: 100%;
             top: 0;
@@ -43,9 +56,14 @@
             z-index: 1000;
         }
 
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
         nav ul {
             display: flex;
-            justify-content: flex-end;
             list-style-type: none;
         }
 
@@ -70,6 +88,14 @@
 
         section {
             padding: 100px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         h1, h2, h3 {
@@ -85,6 +111,23 @@
         h2 {
             font-size: 32px;
             margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--highlight-color);
+            transition: width 0.3s ease;
+        }
+
+        h2:hover::after {
+            width: 100%;
         }
 
         h3 {
@@ -121,10 +164,28 @@
             border-radius: 4px;
             font-size: 14px;
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background-color: var(--highlight-color);
+            transition: all 0.3s ease;
+            z-index: -1;
         }
 
         .btn:hover {
-            background-color: rgba(100, 255, 218, 0.1);
+            color: var(--bg-color);
+        }
+
+        .btn:hover::before {
+            left: 0;
         }
 
         .grid {
@@ -134,14 +195,16 @@
         }
 
         .card {
-            background-color: var(--secondary-color);
+            background-color: var(--card-bg);
             border-radius: 4px;
             padding: 30px;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: var(--card-shadow);
         }
 
         .card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
         }
 
         .card h3 {
@@ -183,6 +246,12 @@
             padding: 5px 10px;
             border-radius: 20px;
             font-size: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background-color: var(--highlight-color);
+            color: var(--bg-color);
         }
 
         .social-icons {
@@ -194,17 +263,31 @@
         .social-icons a {
             color: var(--header-color);
             font-size: 24px;
-            transition: color 0.3s ease;
+            transition: color 0.3s ease, transform 0.3s ease;
         }
 
         .social-icons a:hover {
             color: var(--highlight-color);
+            transform: translateY(-3px);
         }
 
         footer {
             text-align: center;
             padding: 30px 0;
             font-size: 14px;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--header-color);
+            font-size: 24px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            color: var(--highlight-color);
         }
 
         @media (max-width: 768px) {
@@ -224,6 +307,24 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* Typing animation */
+        .typing {
+            overflow: hidden;
+            border-right: 2px solid var(--highlight-color);
+            white-space: nowrap;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--highlight-color) }
+        }
     </style>
 </head>
 <body>
@@ -237,6 +338,9 @@
                     <li><a href="#skills">Skills</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
+                <button class="theme-toggle" aria-label="Toggle dark/light mode">
+                    <i class="fas fa-moon"></i>
+                </button>
             </nav>
         </div>
     </header>
@@ -245,7 +349,7 @@
         <section class="hero">
             <div class="container">
                 <div class="hero-content">
-                    <h1>Hi, I'm <span class="highlight">Aditya Nagariya</span></h1>
+                    <h1>Hi, I'm <span class="highlight typing">Aditya Nagariya</span></h1>
                     <p>I'm a Cybersecurity Professional specializing in ethical hacking, penetration testing, and system security analysis. With a deep understanding of network fundamentals and proficiency in various cybersecurity tools, I'm passionate about solving real-world security challenges.</p>
                     <a href="#contact" class="btn">Get In Touch</a>
                 </div>
@@ -371,6 +475,88 @@
             <p>&copy; 2024 Aditya Nagariya. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Dark/Light mode toggle
+        const themeToggle = document.querySelector('.theme-toggle');
+        const htmlElement = document.documentElement;
+        const themeIcon = themeToggle.querySelector('i');
+
+        themeToggle.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+            if (htmlElement.classList.contains('dark')) {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
+        });
+
+        // Section visibility animation
+        const sections = document.querySelectorAll('section');
+        const options = {
+            root: null,
+            threshold: 0.1,
+            rootMargin: "0px"
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, options);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Typing animation for the name in the hero section
+        const typingElement = document.querySelector('.typing');
+        const fullName = typingElement.textContent;
+        typingElement.textContent = '';
+
+        let i = 0;
+        function typeWriter() {
+            if (i < fullName.length) {
+                typingElement.textContent += fullName.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            }
+        }
+
+        typeWriter();
+
+        // Parallax effect for the hero section
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.pageYOffset;
+            const heroContent = document.querySelector('.hero-content');
+            heroContent.style.transform = `translateY(${scrollPosition * 0.3}px)`;
+        });
+
+        // Interactive skill tags
+        const skillTags = document.querySelectorAll('.skill-tag');
+        skillTags.forEach(tag => {
+            tag.addEventListener('mouseover', () => {
+                tag.style.transform = 'scale(1.1)';
+            });
+            tag.addEventListener('mouseout', () => {
+                tag.style.transform = 'scale(1)';
+            });
+        });
+    </script>
 </body>
 </html>
-
