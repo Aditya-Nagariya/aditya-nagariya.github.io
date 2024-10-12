@@ -13,17 +13,14 @@
         }
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f0f4f8;
-            color: #333;
-            line-height: 1.6;
-            padding: 0 20px;
+            background-color: #f8f9fa;
+            color: #343a40;
         }
         header {
-            background: linear-gradient(to right, #007BFF, #0056b3);
-            color: #fff;
-            padding: 40px 0;
+            background: #007bff;
+            color: white;
+            padding: 50px 0;
             text-align: center;
-            position: relative;
         }
         header h1 {
             font-size: 3em;
@@ -37,7 +34,7 @@
             margin: 20px 0;
         }
         nav a {
-            color: #fff;
+            color: white;
             margin: 0 15px;
             text-decoration: none;
             font-weight: bold;
@@ -47,71 +44,57 @@
             color: #ffe600;
         }
         section {
-            margin: 30px auto;
-            background: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            max-width: 800px;
+            padding: 60px 20px;
+            text-align: center;
         }
         h2 {
-            color: #007BFF;
-            border-bottom: 2px solid #007BFF;
-            padding-bottom: 5px;
-            margin-top: 20px;
-            font-size: 2em;
+            color: #007bff;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+            border-bottom: 2px solid #007bff;
+            display: inline-block;
+            padding-bottom: 10px;
         }
-        ul {
-            list-style-type: none;
-            padding: 0;
+        .skills, .projects {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
         }
-        li {
-            margin: 10px 0;
-            padding: 10px;
-            border: 1px solid #e0e0e0;
-            border-radius: 5px;
+        .skill, .project {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
             transition: transform 0.2s;
         }
-        li:hover {
-            transform: translateY(-3px);
-            border-color: #007BFF;
+        .skill:hover, .project:hover {
+            transform: translateY(-5px);
         }
         footer {
             text-align: center;
             padding: 20px 0;
-            background: #333;
-            color: #fff;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
-        footer a {
-            color: #fff;
+            background: #343a40;
+            color: white;
         }
         .social-icons {
             margin-top: 20px;
         }
         .social-icons a {
             margin: 0 10px;
-            color: #007BFF;
+            color: #007bff;
             font-size: 1.5em;
             transition: color 0.3s;
         }
         .social-icons a:hover {
             color: #0056b3;
         }
-        .btn {
-            display: inline-block;
-            padding: 10px 15px;
-            background: #007BFF;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background 0.3s;
-            margin-top: 20px;
-        }
-        .btn:hover {
-            background: #0056b3;
+        @media (max-width: 768px) {
+            .skills, .projects {
+                flex-direction: column;
+                align-items: center;
+            }
         }
     </style>
 </head>
@@ -124,60 +107,60 @@
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
-        <a href="#certifications">Certifications</a>
         <a href="#contact">Contact</a>
     </nav>
 </header>
 
 <section id="about">
     <h2>About Me</h2>
-    <p>I am a B.Tech Computer Science student with a passion for software development and cybersecurity. My goal is to leverage my skills to create secure and innovative solutions while exploring the latest advancements in technology.</p>
+    <p>I am a B.Tech Computer Science student passionate about software development and cybersecurity. My goal is to create secure, innovative solutions while staying up-to-date with the latest technologies.</p>
 </section>
 
 <section id="skills">
     <h2>Skills</h2>
-    <h3>Technical Skills</h3>
-    <ul>
-        <li><strong>Operating Systems:</strong> Linux (Kali, Parrot), Mac OS</li>
-        <li><strong>Networking:</strong> IP addressing, Subnetting, TCP/IP, OSI Model</li>
-        <li><strong>Security Tools:</strong> Nmap, Wireshark, TCPDump</li>
-        <li><strong>Protocols:</strong> DHCP, DNS, HTTP/HTTPS, SSL/TLS</li>
-        <li><strong>Development:</strong> Python, SQL, JavaScript, HTML/CSS, MERN-Stack, Flutter, GitHub</li>
-        <li><strong>Cybersecurity Fundamentals:</strong> Cyber Kill Chain, Network Scanning, Port Scanning</li>
-    </ul>
-    <h3>Professional Skills</h3>
-    <ul>
-        <li>Critical Thinking</li>
-        <li>Problem Solving</li>
-        <li>Active Listening</li>
-        <li>Creativity</li>
-        <li>Patience</li>
-    </ul>
-    <h3>Other Skills</h3>
-    <ul>
-        <li>Data Structures & Algorithms</li>
-        <li>Prompt Engineering (ChatGPT)</li>
-    </ul>
+    <div class="skills">
+        <div class="skill">
+            <h3>Technical Skills</h3>
+            <ul>
+                <li>Operating Systems: Linux (Kali, Parrot), Mac OS</li>
+                <li>Networking: IP addressing, Subnetting, TCP/IP</li>
+                <li>Security Tools: Nmap, Wireshark, TCPDump</li>
+                <li>Development: Python, SQL, JavaScript, HTML/CSS, MERN-Stack, Flutter</li>
+            </ul>
+        </div>
+        <div class="skill">
+            <h3>Professional Skills</h3>
+            <ul>
+                <li>Critical Thinking</li>
+                <li>Problem Solving</li>
+                <li>Active Listening</li>
+                <li>Creativity</li>
+                <li>Patience</li>
+            </ul>
+        </div>
+        <div class="skill">
+            <h3>Other Skills</h3>
+            <ul>
+                <li>Data Structures & Algorithms</li>
+                <li>Prompt Engineering (ChatGPT)</li>
+            </ul>
+        </div>
+    </div>
 </section>
 
 <section id="projects">
     <h2>Projects</h2>
-    <ul>
-        <li>
-            <strong>Steganography using Python:</strong> Developed a tool integrating AES-256 encryption to embed messages within images, employing PBKDF2 with SHA-256 for secure encryption, and utilized PyQt5 for a user-friendly GUI.
-        </li>
+    <div class="projects">
+        <div class="project">
+            <h3>Steganography Tool</h3>
+            <p>Developed a Python tool that integrates AES-256 encryption for embedding messages within images, utilizing PyQt5 for a user-friendly interface.</p>
+        </div>
+        <div class="project">
+            <h3>Personal Website</h3>
+            <p>Designed and developed a portfolio website to showcase my skills, projects, and certifications using HTML, CSS, and JavaScript.</p>
+        </div>
         <!-- Add more projects as needed -->
-    </ul>
-</section>
-
-<section id="certifications">
-    <h2>Certifications</h2>
-    <ul>
-        <li><a href="https://drive.google.com/file/d/1shJ0OiNRUjyB7Isj0DiuEfZYeguUetdb/view?usp=sharing">Hack The Box Academy Certifications</a> (June 2024): Intro to Academy, Linux Fundamentals</li>
-        <li><a href="https://www.credly.com/go/xhCLJCAm">Cybersecurity Fundamentals</a> (Sept 2023 - Nov 2023): IBM SkillsBuild</li>
-        <li><a href="https://coursera.org/verify/S6ALJE2X7CGN">Prompt Engineering for ChatGPT</a> (Dec 2022): Vanderbilt University</li>
-        <li><a href="http://www.testdome.com/certificates/7eecbd9af3134abdbba959a63d413045">SQL Certification</a> (June 2022): TestDome</li>
-    </ul>
+    </div>
 </section>
 
 <section id="contact">
@@ -189,7 +172,6 @@
         <a href="https://github.com/Aditya-Nagariya" target="_blank" class="fab fa-github"></a>
         <a href="https://twitter.com/yourusername" target="_blank" class="fab fa-twitter"></a>
     </div>
-    <a href="mailto:your-email@example.com" class="btn">Get in Touch</a>
 </section>
 
 <footer>
