@@ -3,26 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aditya Nagariya's Profile</title>
+    <title>Aditya Nagariya | Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
             background-color: #f4f4f4;
         }
         header {
             background: #007BFF;
             color: #fff;
-            padding: 20px 0;
+            padding: 30px 0;
             text-align: center;
         }
         header h1 {
             margin: 0;
+            font-size: 2.5em;
         }
         header p {
             font-size: 1.2em;
+        }
+        nav {
+            margin: 20px 0;
+        }
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
         }
         section {
             margin: 20px auto;
@@ -33,9 +50,10 @@
             max-width: 800px;
         }
         h2 {
+            color: #007BFF;
             border-bottom: 2px solid #007BFF;
             padding-bottom: 5px;
-            margin-top: 0;
+            margin-top: 20px;
         }
         ul {
             list-style-type: none;
@@ -43,13 +61,6 @@
         }
         li {
             margin: 10px 0;
-        }
-        a {
-            text-decoration: none;
-            color: #007BFF;
-        }
-        a:hover {
-            text-decoration: underline;
         }
         footer {
             text-align: center;
@@ -60,6 +71,30 @@
         footer a {
             color: #fff;
         }
+        .social-icons {
+            margin-top: 20px;
+        }
+        .social-icons a {
+            margin: 0 10px;
+            color: #007BFF;
+            font-size: 1.5em;
+            transition: color 0.3s;
+        }
+        .social-icons a:hover {
+            color: #0056b3;
+        }
+        .card {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
     </style>
 </head>
 <body>
@@ -67,55 +102,61 @@
 <header>
     <h1>Aditya Nagariya</h1>
     <p>B.Tech Computer Science Student | Cybersecurity Enthusiast | Software Developer</p>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#contact">Contact</a>
+    </nav>
 </header>
 
-<section>
+<section id="about">
     <h2>About Me</h2>
-    <p>As a B.Tech Computer Science student, I am passionate about leveraging my software development skills to create innovative solutions while also focusing on cybersecurity to ensure these applications are secure and resilient against threats. My goal is to bridge the gap between software development and cybersecurity, contributing to creating secure software environments.</p>
+    <p>I am a B.Tech Computer Science student with a strong interest in software development and cybersecurity. I aim to leverage my technical skills to build secure software solutions and explore the latest advancements in cybersecurity.</p>
 </section>
 
-<section>
+<section id="skills">
     <h2>Skills</h2>
-    <h3>Technical Skills</h3>
-    <ul>
-        <li><strong>Operating Systems:</strong> Linux (Kali, Parrot), Mac OS</li>
-        <li><strong>Networking:</strong> IP addressing, Subnetting, TCP/IP, OSI Model</li>
-        <li><strong>Security Tools:</strong> Nmap, Wireshark, TCPDump</li>
-        <li><strong>Protocols:</strong> DHCP, DNS, HTTP/HTTPS, SSL/TLS</li>
-        <li><strong>Development:</strong> Python, SQL, JavaScript, HTML/CSS, MERN-Stack, Flutter, GitHub</li>
-        <li><strong>Cybersecurity Fundamentals:</strong> Cyber Kill Chain, Network Scanning, Port Scanning</li>
-    </ul>
-    <h3>Professional Skills</h3>
-    <ul>
-        <li>Critical Thinking</li>
-        <li>Problem Solving</li>
-        <li>Active Listening</li>
-        <li>Creativity</li>
-        <li>Patience</li>
-    </ul>
-    <h3>Other Skills</h3>
-    <ul>
-        <li>Data Structures & Algorithms</li>
-        <li>Prompt Engineering (ChatGPT)</li>
-    </ul>
+    <div class="card">
+        <h3>Technical Skills</h3>
+        <ul>
+            <li><strong>Operating Systems:</strong> Linux (Kali, Parrot), Mac OS</li>
+            <li><strong>Networking:</strong> IP addressing, Subnetting, TCP/IP, OSI Model</li>
+            <li><strong>Security Tools:</strong> Nmap, Wireshark, TCPDump</li>
+            <li><strong>Protocols:</strong> DHCP, DNS, HTTP/HTTPS, SSL/TLS</li>
+            <li><strong>Development:</strong> Python, SQL, JavaScript, HTML/CSS, MERN-Stack, Flutter, GitHub</li>
+            <li><strong>Cybersecurity Fundamentals:</strong> Cyber Kill Chain, Network Scanning, Port Scanning</li>
+        </ul>
+    </div>
+    <div class="card">
+        <h3>Professional Skills</h3>
+        <ul>
+            <li>Critical Thinking</li>
+            <li>Problem Solving</li>
+            <li>Active Listening</li>
+            <li>Creativity</li>
+            <li>Patience</li>
+        </ul>
+    </div>
+    <div class="card">
+        <h3>Other Skills</h3>
+        <ul>
+            <li>Data Structures & Algorithms</li>
+            <li>Prompt Engineering (ChatGPT)</li>
+        </ul>
+    </div>
 </section>
 
-<section>
-    <h2>Education</h2>
-    <p><strong>Bachelor of Computer Science & Engineering</strong><br>
-    Darshan University<br>
-    August 2021 - May 2025<br>
-    CGPA: 6.98<br>
-    Relevant Coursework: Data Structures, Algorithms, Operating Systems, Cybersecurity, Computer Networks, DBMS</p>
-
-    <p><strong>High School (Science, Group A)</strong><br>
-    Shree N.P. Bhalodya<br>
-    April 2019 - October 2021<br>
-    Grade: 72%<br>
-    Focused on Physics, Chemistry, Mathematics</p>
+<section id="projects">
+    <h2>Projects</h2>
+    <div class="card">
+        <h3>Steganography using Python</h3>
+        <p>Integrated <strong>AES-256 encryption</strong> to securely embed messages within images using <strong>Python</strong>. Applied <strong>PBKDF2</strong> with <strong>SHA-256</strong> to strengthen encryption and utilized <strong>PyQt5</strong> for GUI design, creating a user-friendly tool.</p>
+    </div>
 </section>
 
-<section>
+<section id="certifications">
     <h2>Certifications</h2>
     <ul>
         <li><a href="https://drive.google.com/file/d/1shJ0OiNRUjyB7Isj0DiuEfZYeguUetdb/view?usp=sharing">Hack The Box Academy Certifications</a> (June 2024): Intro to Academy, Linux Fundamentals</li>
@@ -125,14 +166,18 @@
     </ul>
 </section>
 
-<section>
-    <h2>Projects</h2>
-    <p><strong>Steganography using Python</strong> (November 2023)<br>
-    Integrated <strong>AES-256 encryption</strong> to securely embed messages within images using <strong>Python</strong>, ensuring the integrity of sensitive data. Applied <strong>PBKDF2</strong> with <strong>SHA-256</strong> to strengthen encryption and utilized <strong>PyQt5</strong> for GUI design, creating a user-friendly tool.</p>
+<section id="contact">
+    <h2>Contact Me</h2>
+    <p>If you'd like to connect or learn more about my work, feel free to reach out!</p>
+    <p>Email: <a href="mailto:your-email@example.com">your-email@example.com</a></p>
+    <div class="social-icons">
+        <a href="https://www.linkedin.com/in/aditya-nagariya-veni-vidi-vici" target="_blank" class="fab fa-linkedin"></a>
+        <a href="https://github.com/Aditya-Nagariya" target="_blank" class="fab fa-github"></a>
+        <a href="https://twitter.com/yourusername" target="_blank" class="fab fa-twitter"></a>
+    </div>
 </section>
 
 <footer>
-    <p>Connect with me on <a href="https://www.linkedin.com/in/aditya-nagariya-veni-vidi-vici" target="_blank">LinkedIn</a> | <a href="https://github.com/Aditya-Nagariya" target="_blank">GitHub</a></p>
     <p>&copy; 2024 Aditya Nagariya</p>
 </footer>
 
