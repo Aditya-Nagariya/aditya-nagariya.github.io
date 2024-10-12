@@ -306,32 +306,6 @@
             .grid {
                 grid-template-columns: 1fr;
             }
-
-            nav ul {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background-color: var(--bg-color);
-                padding: 20px;
-            }
-
-            nav ul.show {
-                display: flex;
-            }
-
-            nav ul li {
-                margin: 10px 0;
-            }
-
-            .menu-toggle {
-                display: block;
-                font-size: 24px;
-                color: var(--header-color);
-                cursor: pointer;
-            }
         }
 
         /* Typing animation */
@@ -351,40 +325,6 @@
             from, to { border-color: transparent }
             50% { border-color: var(--highlight-color) }
         }
-
-        /* Apple-inspired animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .scale-in {
-            opacity: 0;
-            transform: scale(0.9);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-
-        .scale-in.visible {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        .slide-in {
-            opacity: 0;
-            transform: translateX(-20px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-
-        .slide-in.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
     </style>
 </head>
 <body>
@@ -396,12 +336,8 @@
                     <li><a href="#experience">Experience</a></li>
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#skills">Skills</a></li>
-                    <li><a href="#achievements">Achievements</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
-                <div class="menu-toggle">
-                    <i class="fas fa-bars"></i>
-                </div>
                 <button class="theme-toggle" aria-label="Toggle dark/light mode">
                     <i class="fas fa-moon"></i>
                 </button>
@@ -412,7 +348,7 @@
     <main>
         <section class="hero">
             <div class="container">
-                <div class="hero-content fade-in">
+                <div class="hero-content">
                     <h1>Hi, I'm <span class="highlight typing">Aditya Nagariya</span></h1>
                     <p>I'm a Cybersecurity Professional specializing in ethical hacking, penetration testing, and system security analysis. With a deep understanding of network fundamentals and proficiency in various cybersecurity tools, I'm passionate about solving real-world security challenges.</p>
                     <a href="#contact" class="btn">Get In Touch</a>
@@ -422,16 +358,16 @@
 
         <section id="about">
             <div class="container">
-                <h2 class="slide-in">About Me</h2>
-                <p class="fade-in">As a proactive and detail-oriented cybersecurity professional, I excel in identifying vulnerabilities, conducting network traffic analysis, and implementing mitigation strategies. My expertise extends to the OSI model, VPN technologies, and configuring Linux and Mac OS systems. I'm constantly engaged in self-learning and tackling real-world security challenges to stay at the forefront of the ever-evolving cybersecurity landscape.</p>
+                <h2>About Me</h2>
+                <p>As a proactive and detail-oriented cybersecurity professional, I excel in identifying vulnerabilities, conducting network traffic analysis, and implementing mitigation strategies. My expertise extends to the OSI model, VPN technologies, and configuring Linux and Mac OS systems. I'm constantly engaged in self-learning and tackling real-world security challenges to stay at the forefront of the ever-evolving cybersecurity landscape.</p>
             </div>
         </section>
 
         <section id="experience">
             <div class="container">
-                <h2 class="slide-in">Experience</h2>
+                <h2>Experience</h2>
                 <div class="grid">
-                    <div class="card scale-in">
+                    <div class="card">
                         <h3>Self-Learning and Independent Study in Cybersecurity</h3>
                         <p>April 2024 - Present | Remote</p>
                         <ul>
@@ -440,7 +376,7 @@
                             <li>Mastered Linux distributions (Kali, Parrot) configuration</li>
                         </ul>
                     </div>
-                    <div class="card scale-in">
+                    <div class="card">
                         <h3>Hack The Box Academy Student</h3>
                         <p>June 2024 - Present | Remote</p>
                         <ul>
@@ -449,7 +385,7 @@
                             <li>Applied Wireshark, TCPDump, and ARP for traffic analysis</li>
                         </ul>
                     </div>
-                    <div class="card scale-in">
+                    <div class="card">
                         <h3>Cybersecurity Intern</h3>
                         <p>October 2023 - November 2023 | Edunet by IBM, Remote</p>
                         <ul>
@@ -463,9 +399,9 @@
 
         <section id="projects">
             <div class="container">
-                <h2 class="slide-in">Projects</h2>
+                <h2>Projects</h2>
                 <div class="grid">
-                    <div class="card scale-in">
+                    <div class="card">
                         <h3>Steganography using Python</h3>
                         <p>Developed a tool for secure message embedding in images</p>
                         <ul>
@@ -473,18 +409,16 @@
                             <li>Implemented PBKDF2 with SHA-256</li>
                             <li>Created user-friendly GUI with PyQt5</li>
                         </ul>
-                        <a href="#" class="btn">View Project</a>
                     </div>
-                    <div class="card scale-in">
+                    <div class="card">
                         <h3>Clima — Weather App</h3>
                         <p>Built a Flutter-based weather application</p>
                         <ul>
-                            
-<li>Focused on secure API handling</li>
+                            <li>Integrated OpenWeatherMap API</li>
+                            <li>Focused on secure API handling</li>
                         </ul>
-                        <a href="#" class="btn">View Project</a>
                     </div>
-                    <div class="card scale-in">
+                    <div class="card">
                         <h3>Book-App</h3>
                         <p>Developed a RESTful API for book management</p>
                         <ul>
@@ -492,7 +426,6 @@
                             <li>Implemented secure CRUD operations</li>
                             <li>Applied CORS for cross-origin security</li>
                         </ul>
-                        <a href="#" class="btn">View Project</a>
                     </div>
                 </div>
             </div>
@@ -500,8 +433,8 @@
 
         <section id="skills">
             <div class="container">
-                <h2 class="slide-in">Skills</h2>
-                <div class="skills-list fade-in">
+                <h2>Skills</h2>
+                <div class="skills-list">
                     <span class="skill-tag">Linux (Kali, Parrot)</span>
                     <span class="skill-tag">Mac OS</span>
                     <span class="skill-tag">Networking</span>
@@ -522,46 +455,14 @@
             </div>
         </section>
 
-        <section id="achievements">
-            <div class="container">
-                <h2 class="slide-in">Achievements</h2>
-                <div class="grid">
-                    <div class="card scale-in">
-                        <h3>TryHackMe</h3>
-                        <ul>
-                            <li>Top 5% globally ranked</li>
-                            <li>Completed over 50 rooms</li>
-                            <li>Earned "Offensive Pentesting" certificate</li>
-                        </ul>
-                    </div>
-                    <div class="card scale-in">
-                        <h3>Hack The Box</h3>
-                        <ul>
-                            <li>Ranked in top 20% on challenges</li>
-                            <li>Completed 15 machines</li>
-                            <li>Active participant in CTF events</li>
-                        </ul>
-                    </div>
-                    <div class="card scale-in">
-                        <h3>Certifications</h3>
-                        <ul>
-                            <li>CompTIA Security+</li>
-                            <li>Certified Ethical Hacker (CEH)</li>
-                            <li>OSCP (in progress)</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <section id="contact">
             <div class="container">
-                <h2 class="slide-in">Get In Touch</h2>
-                <p class="fade-in">I'm always open to new opportunities and collaborations. Feel free to reach out!</p>
-                <p class="fade-in">Email: <a href="mailto:adityanagariyav@gmail.com" class="highlight">adityanagariyav@gmail.com</a></p>
-                <p class="fade-in">Phone: +91 9998272527</p>
-                <p class="fade-in">Location: Rajkot, IN</p>
-                <div class="social-icons fade-in">
+                <h2>Get In Touch</h2>
+                <p>I'm always open to new opportunities and collaborations. Feel free to reach out!</p>
+                <p>Email: <a href="mailto:adityanagariyav@gmail.com" class="highlight">adityanagariyav@gmail.com</a></p>
+                <p>Phone: +91 9998272527</p>
+                <p>Location: Rajkot, IN</p>
+                <div class="social-icons">
                     <a href="https://linkedin.com/in/aditya-nagariya-veni-vidi-vici" target="_blank"><i class="fab fa-linkedin"></i></a>
                     <a href="https://github.com/Aditya-Nagariya" target="_blank"><i class="fab fa-github"></i></a>
                 </div>
@@ -603,7 +504,7 @@
         });
 
         // Section visibility animation
-        const animatedElements = document.querySelectorAll('.fade-in, .scale-in, .slide-in');
+        const sections = document.querySelectorAll('section');
         const options = {
             root: null,
             threshold: 0.1,
@@ -619,8 +520,8 @@
             });
         }, options);
 
-        animatedElements.forEach(element => {
-            observer.observe(element);
+        sections.forEach(section => {
+            observer.observe(section);
         });
 
         // Typing animation for the name in the hero section
@@ -654,22 +555,6 @@
             });
             tag.addEventListener('mouseout', () => {
                 tag.style.transform = 'scale(1)';
-            });
-        });
-
-        // Responsive menu toggle
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navMenu = document.querySelector('nav ul');
-
-        menuToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('show');
-        });
-
-        // Close menu when a link is clicked
-        const navLinks = document.querySelectorAll('nav ul li a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('show');
             });
         });
     </script>
