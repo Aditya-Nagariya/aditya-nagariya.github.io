@@ -12,22 +12,26 @@
             padding: 0;
         }
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
             line-height: 1.6;
-            background-color: #f4f4f4;
+            padding: 0 20px;
         }
         header {
-            background: #007BFF;
+            background: linear-gradient(to right, #007BFF, #0056b3);
             color: #fff;
-            padding: 30px 0;
+            padding: 40px 0;
             text-align: center;
+            position: relative;
         }
         header h1 {
-            margin: 0;
-            font-size: 2.5em;
+            font-size: 3em;
+            margin-bottom: 10px;
         }
         header p {
             font-size: 1.2em;
+            margin-bottom: 20px;
         }
         nav {
             margin: 20px 0;
@@ -37,16 +41,17 @@
             margin: 0 15px;
             text-decoration: none;
             font-weight: bold;
+            transition: color 0.3s;
         }
         nav a:hover {
-            text-decoration: underline;
+            color: #ffe600;
         }
         section {
-            margin: 20px auto;
-            background: #fff;
-            padding: 20px;
+            margin: 30px auto;
+            background: #ffffff;
             border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
             max-width: 800px;
         }
         h2 {
@@ -54,6 +59,7 @@
             border-bottom: 2px solid #007BFF;
             padding-bottom: 5px;
             margin-top: 20px;
+            font-size: 2em;
         }
         ul {
             list-style-type: none;
@@ -61,12 +67,23 @@
         }
         li {
             margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            transition: transform 0.2s;
+        }
+        li:hover {
+            transform: translateY(-3px);
+            border-color: #007BFF;
         }
         footer {
             text-align: center;
             padding: 20px 0;
             background: #333;
             color: #fff;
+            position: relative;
+            bottom: 0;
+            width: 100%;
         }
         footer a {
             color: #fff;
@@ -83,17 +100,18 @@
         .social-icons a:hover {
             color: #0056b3;
         }
-        .card {
-            background: #f9f9f9;
-            border: 1px solid #ddd;
+        .btn {
+            display: inline-block;
+            padding: 10px 15px;
+            background: #007BFF;
+            color: #fff;
+            text-decoration: none;
             border-radius: 5px;
-            padding: 15px;
-            margin: 15px 0;
-            transition: transform 0.2s;
+            transition: background 0.3s;
+            margin-top: 20px;
         }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        .btn:hover {
+            background: #0056b3;
         }
     </style>
 </head>
@@ -113,47 +131,43 @@
 
 <section id="about">
     <h2>About Me</h2>
-    <p>I am a B.Tech Computer Science student with a strong interest in software development and cybersecurity. I aim to leverage my technical skills to build secure software solutions and explore the latest advancements in cybersecurity.</p>
+    <p>I am a B.Tech Computer Science student with a passion for software development and cybersecurity. My goal is to leverage my skills to create secure and innovative solutions while exploring the latest advancements in technology.</p>
 </section>
 
 <section id="skills">
     <h2>Skills</h2>
-    <div class="card">
-        <h3>Technical Skills</h3>
-        <ul>
-            <li><strong>Operating Systems:</strong> Linux (Kali, Parrot), Mac OS</li>
-            <li><strong>Networking:</strong> IP addressing, Subnetting, TCP/IP, OSI Model</li>
-            <li><strong>Security Tools:</strong> Nmap, Wireshark, TCPDump</li>
-            <li><strong>Protocols:</strong> DHCP, DNS, HTTP/HTTPS, SSL/TLS</li>
-            <li><strong>Development:</strong> Python, SQL, JavaScript, HTML/CSS, MERN-Stack, Flutter, GitHub</li>
-            <li><strong>Cybersecurity Fundamentals:</strong> Cyber Kill Chain, Network Scanning, Port Scanning</li>
-        </ul>
-    </div>
-    <div class="card">
-        <h3>Professional Skills</h3>
-        <ul>
-            <li>Critical Thinking</li>
-            <li>Problem Solving</li>
-            <li>Active Listening</li>
-            <li>Creativity</li>
-            <li>Patience</li>
-        </ul>
-    </div>
-    <div class="card">
-        <h3>Other Skills</h3>
-        <ul>
-            <li>Data Structures & Algorithms</li>
-            <li>Prompt Engineering (ChatGPT)</li>
-        </ul>
-    </div>
+    <h3>Technical Skills</h3>
+    <ul>
+        <li><strong>Operating Systems:</strong> Linux (Kali, Parrot), Mac OS</li>
+        <li><strong>Networking:</strong> IP addressing, Subnetting, TCP/IP, OSI Model</li>
+        <li><strong>Security Tools:</strong> Nmap, Wireshark, TCPDump</li>
+        <li><strong>Protocols:</strong> DHCP, DNS, HTTP/HTTPS, SSL/TLS</li>
+        <li><strong>Development:</strong> Python, SQL, JavaScript, HTML/CSS, MERN-Stack, Flutter, GitHub</li>
+        <li><strong>Cybersecurity Fundamentals:</strong> Cyber Kill Chain, Network Scanning, Port Scanning</li>
+    </ul>
+    <h3>Professional Skills</h3>
+    <ul>
+        <li>Critical Thinking</li>
+        <li>Problem Solving</li>
+        <li>Active Listening</li>
+        <li>Creativity</li>
+        <li>Patience</li>
+    </ul>
+    <h3>Other Skills</h3>
+    <ul>
+        <li>Data Structures & Algorithms</li>
+        <li>Prompt Engineering (ChatGPT)</li>
+    </ul>
 </section>
 
 <section id="projects">
     <h2>Projects</h2>
-    <div class="card">
-        <h3>Steganography using Python</h3>
-        <p>Integrated <strong>AES-256 encryption</strong> to securely embed messages within images using <strong>Python</strong>. Applied <strong>PBKDF2</strong> with <strong>SHA-256</strong> to strengthen encryption and utilized <strong>PyQt5</strong> for GUI design, creating a user-friendly tool.</p>
-    </div>
+    <ul>
+        <li>
+            <strong>Steganography using Python:</strong> Developed a tool integrating AES-256 encryption to embed messages within images, employing PBKDF2 with SHA-256 for secure encryption, and utilized PyQt5 for a user-friendly GUI.
+        </li>
+        <!-- Add more projects as needed -->
+    </ul>
 </section>
 
 <section id="certifications">
@@ -175,6 +189,7 @@
         <a href="https://github.com/Aditya-Nagariya" target="_blank" class="fab fa-github"></a>
         <a href="https://twitter.com/yourusername" target="_blank" class="fab fa-twitter"></a>
     </div>
+    <a href="mailto:your-email@example.com" class="btn">Get in Touch</a>
 </section>
 
 <footer>
