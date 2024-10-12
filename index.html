@@ -3,180 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aditya Nagariya | Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f8f9fa;
-            color: #343a40;
-        }
-        header {
-            background: #007bff;
-            color: white;
-            padding: 50px 0;
-            text-align: center;
-        }
-        header h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
-        }
-        header p {
-            font-size: 1.2em;
-            margin-bottom: 20px;
-        }
-        nav {
-            margin: 20px 0;
-        }
-        nav a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-        nav a:hover {
-            color: #ffe600;
-        }
-        section {
-            padding: 60px 20px;
-            text-align: center;
-        }
-        h2 {
-            color: #007bff;
-            margin-bottom: 20px;
-            font-size: 2.5em;
-            border-bottom: 2px solid #007bff;
-            display: inline-block;
-            padding-bottom: 10px;
-        }
-        .skills, .projects {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
-        .skill, .project {
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            width: 300px;
-            transition: transform 0.2s;
-        }
-        .skill:hover, .project:hover {
-            transform: translateY(-5px);
-        }
-        footer {
-            text-align: center;
-            padding: 20px 0;
-            background: #343a40;
-            color: white;
-        }
-        .social-icons {
-            margin-top: 20px;
-        }
-        .social-icons a {
-            margin: 0 10px;
-            color: #007bff;
-            font-size: 1.5em;
-            transition: color 0.3s;
-        }
-        .social-icons a:hover {
-            color: #0056b3;
-        }
-        @media (max-width: 768px) {
-            .skills, .projects {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-    </style>
+    <title>Aditya Nagariya - Cybersecurity Professional</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
 </head>
-<body>
-
-<header>
-    <h1>Aditya Nagariya</h1>
-    <p>B.Tech Computer Science Student | Cybersecurity Enthusiast | Software Developer</p>
-    <nav>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-    </nav>
-</header>
-
-<section id="about">
-    <h2>About Me</h2>
-    <p>I am a B.Tech Computer Science student passionate about software development and cybersecurity. My goal is to create secure, innovative solutions while staying up-to-date with the latest technologies.</p>
-</section>
-
-<section id="skills">
-    <h2>Skills</h2>
-    <div class="skills">
-        <div class="skill">
-            <h3>Technical Skills</h3>
-            <ul>
-                <li>Operating Systems: Linux (Kali, Parrot), Mac OS</li>
-                <li>Networking: IP addressing, Subnetting, TCP/IP</li>
-                <li>Security Tools: Nmap, Wireshark, TCPDump</li>
-                <li>Development: Python, SQL, JavaScript, HTML/CSS, MERN-Stack, Flutter</li>
+<body class="bg-gray-100 text-gray-800">
+    <header class="bg-gray-800 text-white py-4">
+        <nav class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Aditya Nagariya</h1>
+            <ul class="flex space-x-4">
+                <li><a href="#about" class="hover:text-gray-300">About</a></li>
+                <li><a href="#experience" class="hover:text-gray-300">Experience</a></li>
+                <li><a href="#projects" class="hover:text-gray-300">Projects</a></li>
+                <li><a href="#skills" class="hover:text-gray-300">Skills</a></li>
+                <li><a href="#contact" class="hover:text-gray-300">Contact</a></li>
             </ul>
-        </div>
-        <div class="skill">
-            <h3>Professional Skills</h3>
-            <ul>
-                <li>Critical Thinking</li>
-                <li>Problem Solving</li>
-                <li>Active Listening</li>
-                <li>Creativity</li>
-                <li>Patience</li>
-            </ul>
-        </div>
-        <div class="skill">
-            <h3>Other Skills</h3>
-            <ul>
-                <li>Data Structures & Algorithms</li>
-                <li>Prompt Engineering (ChatGPT)</li>
-            </ul>
-        </div>
-    </div>
-</section>
+        </nav>
+    </header>
 
-<section id="projects">
-    <h2>Projects</h2>
-    <div class="projects">
-        <div class="project">
-            <h3>Steganography Tool</h3>
-            <p>Developed a Python tool that integrates AES-256 encryption for embedding messages within images, utilizing PyQt5 for a user-friendly interface.</p>
+    <main>
+        <section id="hero" class="bg-gray-700 text-white py-20">
+            <div class="container mx-auto text-center">
+                <h2 class="text-4xl font-bold mb-4">Cybersecurity Professional</h2>
+                <p class="text-xl mb-8">Protecting digital assets through ethical hacking and penetration testing</p>
+                <a href="#contact" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">Get in Touch</a>
+            </div>
+        </section>
+
+        <section id="about" class="py-16 bg-white">
+            <div class="container mx-auto">
+                <h2 class="text-3xl font-bold mb-8 text-center">About Me</h2>
+                <div class="flex flex-col md:flex-row items-center">
+                    <img src="/api/placeholder/300/300" alt="Aditya Nagariya" class="w-64 h-64 rounded-full mb-8 md:mb-0 md:mr-8">
+                    <div>
+                        <p class="text-lg mb-4">Proactive and detail-oriented cybersecurity professional with hands-on experience in ethical hacking, penetration testing, and system security analysis. Adept in identifying vulnerabilities, conducting network traffic analysis, and implementing mitigation strategies.</p>
+                        <p class="text-lg">Deep understanding of network fundamentals, OSI model, and VPN. Proficient in cybersecurity tools like Nmap, Wireshark, and TCPDump, and skilled in configuring Linux (Kali, Parrot) and Mac OS systems.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="py-16 bg-gray-100">
+            <div class="container mx-auto">
+                <h2 class="text-3xl font-bold mb-8 text-center">Experience</h2>
+                <div class="space-y-8">
+                    <div class="bg-white p-6 rounded-lg shadow">
+                        <h3 class="text-xl font-bold mb-2">Self-Learning and Independent Study in Cybersecurity</h3>
+                        <p class="text-gray-600 mb-4">April 2024 - Present | Remote</p>
+                        <ul class="list-disc list-inside">
+                            <li>Performed subdomain enumeration and vulnerability assessments</li>
+                            <li>Utilized tools like Nmap, Burp Suite, and Wireshark for network analysis</li>
+                            <li>Gained proficiency in navigating operating systems through CLI and UI</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow">
+                        <h3 class="text-xl font-bold mb-2">Hack The Box Academy Student</h3>
+                        <p class="text-gray-600 mb-4">June 2024 - Present | Remote</p>
+                        <ul class="list-disc list-inside">
+                            <li>Ranked in the top 20% by successfully compromising targets</li>
+                            <li>Enhanced knowledge of Linux systems and penetration testing</li>
+                            <li>Applied skills in using Wireshark, TCPDump, and ARP for traffic analysis</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="py-16 bg-white">
+            <div class="container mx-auto">
+                <h2 class="text-3xl font-bold mb-8 text-center">Projects</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-gray-100 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold mb-2">Steganography using Python</h3>
+                        <p>Integrated AES-256 encryption to securely embed messages within images using Python, ensuring the integrity of sensitive data.</p>
+                    </div>
+                    <div class="bg-gray-100 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold mb-2">Clima — Weather App</h3>
+                        <p>Built a Flutter-based weather application that retrieves real-time data using the OpenWeatherMap API, focusing on secure API handling.</p>
+                    </div>
+                    <div class="bg-gray-100 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold mb-2">Book-App</h3>
+                        <p>Developed a RESTful API using Express.js and MongoDB, ensuring secure CRUD operations and implementing CORS for cross-origin request security.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="py-16 bg-gray-100">
+            <div class="container mx-auto">
+                <h2 class="text-3xl font-bold mb-8 text-center">Skills</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">Technical Skills</h3>
+                        <ul class="list-disc list-inside">
+                            <li>Operating Systems: Linux (Kali, Parrot), Mac OS</li>
+                            <li>Networking: IP addressing, Subnetting, TCP/IP, OSI Model</li>
+                            <li>Security Tools: Nmap, Wireshark, TCPDump, ARP</li>
+                            <li>Protocols: DHCP, DNS, HTTP/HTTPS, FTP, SFTP, SSL/TLS</li>
+                            <li>Development: Python, SQL, JavaScript, MERN-Stack, Flutter</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">Professional Skills</h3>
+                        <ul class="list-disc list-inside">
+                            <li>Critical Thinking</li>
+                            <li>Problem Solving</li>
+                            <li>Active Listening</li>
+                            <li>Creativity</li>
+                            <li>Patience</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-16 bg-white">
+            <div class="container mx-auto">
+                <h2 class="text-3xl font-bold mb-8 text-center">Contact Me</h2>
+                <div class="max-w-lg mx-auto">
+                    <form class="space-y-4">
+                        <div>
+                            <label for="name" class="block mb-1">Name</label>
+                            <input type="text" id="name" name="name" class="w-full p-2 border rounded">
+                        </div>
+                        <div>
+                            <label for="email" class="block mb-1">Email</label>
+                            <input type="email" id="email" name="email" class="w-full p-2 border rounded">
+                        </div>
+                        <div>
+                            <label for="message" class="block mb-1">Message</label>
+                            <textarea id="message" name="message" rows="4" class="w-full p-2 border rounded"></textarea>
+                        </div>
+                        <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto text-center">
+            <div class="flex justify-center space-x-4 mb-4">
+                <a href="https://linkedin.com/in/aditya-nagariya-veni-vidi-vici" target="_blank" class="hover:text-gray-300"><i class="fab fa-linkedin fa-2x"></i></a>
+                <a href="https://github.com/Aditya-Nagariya" target="_blank" class="hover:text-gray-300"><i class="fab fa-github fa-2x"></i></a>
+            </div>
+            <p>&copy; 2024 Aditya Nagariya. All rights reserved.</p>
         </div>
-        <div class="project">
-            <h3>Personal Website</h3>
-            <p>Designed and developed a portfolio website to showcase my skills, projects, and certifications using HTML, CSS, and JavaScript.</p>
-        </div>
-        <!-- Add more projects as needed -->
-    </div>
-</section>
-
-<section id="contact">
-    <h2>Contact Me</h2>
-    <p>If you'd like to connect or learn more about my work, feel free to reach out!</p>
-    <p>Email: <a href="mailto:your-email@example.com">adityanagariyav@gmail.com</a></p>
-    <div class="social-icons">
-        <a href="https://www.linkedin.com/in/aditya-nagariya-veni-vidi-vici" target="_blank" class="fab fa-linkedin"></a>
-        <a href="https://github.com/Aditya-Nagariya" target="_blank" class="fab fa-github"></a>
-        <a href="https://twitter.com/Aditya_Nagariya" target="_blank" class="fab fa-twitter"></a>
-    </div>
-</section>
-
-<footer>
-    <p>&copy; 2024 Aditya Nagariya</p>
-</footer>
-
+    </footer>
 </body>
 </html>
