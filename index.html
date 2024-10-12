@@ -227,6 +227,14 @@
                 grid-template-columns: 1fr;
             }
         }
+        header {
+            transition: transform 0.3s ease;
+        }
+
+        header.hide {
+            transform: translateY(-100%);
+        }
+
     </style>
 </head>
 <body>
@@ -397,6 +405,24 @@
             section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
             observer.observe(section);
         });
+
+                let lastScrollTop = 0;
+        const header = document.querySelector('header');
+        const scrollThreshold = 100; // Adjust this value to change when the header starts hiding
+
+        window.addEventListener('scroll', () => {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > lastScrollTop && scrollTop > scrollThreshold) {
+                // Scrolling down & past threshold
+                header.classList.add('hide');
+            } else {
+                // Scrolling up or above threshold
+                header.classList.remove('hide');
+            }
+            
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For mobile or negative scrolling
+        }, false);
     </script>
 </body>
 </html>
