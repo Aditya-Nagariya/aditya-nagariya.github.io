@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aditya Nagariya | Cybersecurity Professional</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
     <style>
         :root {
             --bg-color: #ffffff;
@@ -56,11 +54,6 @@
             background-color: rgba(10, 25, 47, 0.85);
             backdrop-filter: blur(10px);
             z-index: 1000;
-            transition: transform 0.3s ease;
-        }
-
-        header.hide {
-            transform: translateY(-100%);
         }
 
         nav {
@@ -297,6 +290,7 @@
             color: var(--highlight-color);
         }
 
+        /* Responsive menu styles */
         .menu-toggle {
             display: none;
             font-size: 24px;
@@ -346,6 +340,7 @@
             }
         }
 
+        /* Typing animation */
         .typing {
             overflow: hidden;
             border-right: 2px solid var(--highlight-color);
@@ -362,82 +357,20 @@
             from, to { border-color: transparent }
             50% { border-color: var(--highlight-color) }
         }
-
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
+        header {
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            background-color: rgba(10, 25, 47, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: transform 0.3s ease;
         }
 
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
+        header.hide {
+            transform: translateY(-100%);
         }
-
-        .scale-in {
-            opacity: 0;
-            transform: scale(0.9);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-
-        .scale-in.visible {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        .slide-in {
-            opacity: 0;
-            transform: translateX(-20px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-
-        .slide-in.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .rotate-in {
-            opacity: 0;
-            transform: rotate(-10deg);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-
-        .rotate-in.visible {
-            opacity: 1;
-            transform: rotate(0deg);
-        }
-
-        .bounce-in {
-            opacity: 0;
-            transform: scale(0.3);
-            transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .bounce-in.visible {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        .floating {
-            animation: floating 3s ease-in-out infinite;
-        }
-
-        @keyframes floating {
-            0% { transform: translate(0, 0px); }
-            50% { transform: translate(0, 15px); }
-            100% { transform: translate(0, -0px); }
-        }
-
-        .glow {
-            text-shadow: 0 0 5px var(--highlight-color), 0 0 10px var(--highlight-color), 0 0 15px var(--highlight-color);
-            animation: glow 2s ease-in-out infinite alternate;
-        }
-
-        @keyframes glow {
-            from { text-shadow: 0 0 5px var(--highlight-color), 0 0 10px var(--highlight-color), 0 0 15px var(--highlight-color); }
-            to { text-shadow: 0 0 10px var(--highlight-color), 0 0 20px var(--highlight-color), 0 0 30px var(--highlight-color); }
-        }
-
     </style>
 </head>
 <body>
@@ -463,169 +396,169 @@
     </header>
 
     <main>
-        <section class="hero">
-            <div class="container">
-                <div class="hero-content fade-in">
-                    <h1>Hi, I'm <span class="highlight typing">Aditya Nagariya</span></h1>
-                    <p class="glow">Cybersecurity Professional</p>
-                    <p>I specialize in ethical hacking, penetration testing, and system security analysis. With a deep understanding of network fundamentals and proficiency in various cybersecurity tools, I'm passionate about solving real-world security challenges.</p>
-                    <a href="#contact" class="btn floating">Get In Touch</a>
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h1>Hi, I'm <span class="highlight typing">Aditya Nagariya</span></h1>
+                <p>I'm a Cybersecurity Professional specializing in ethical hacking, penetration testing, and system security analysis. With a deep understanding of network fundamentals and proficiency in various cybersecurity tools, I'm passionate about solving real-world security challenges.</p>
+                <a href="#contact" class="btn">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="slide-in">About Me</h2>
+            <p class="fade-in">Proactive and detail-oriented cybersecurity professional with hands-on experience in ethical hacking, penetration testing, and system security analysis. Adept in identifying vulnerabilities, conducting network traffic analysis, and implementing mitigation strategies. Deep understanding of network fundamentals, OSI model and VPN. Proficient in cybersecurity tools like Nmap, Wireshark, and TCPDump, and skilled in configuring Linux (Kali, Parrot) and Mac OS systems. Actively engaged in self-learning and solving real-world security challenges.</p>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="container">
+            <h2 class="slide-in">Experience</h2>
+            <div class="grid">
+                <div class="card scale-in">
+                    <h3>Self-Learning and Independent Study in Cybersecurity</h3>
+                    <p>April 2024 - Present | Remote</p>
+                    <ul>
+                        <li>Performed subdomain enumeration and vulnerability assessments to identify and mitigate security risks.</li>
+                        <li>Utilized tools like Nmap, Burp Suite, and Wireshark for comprehensive network traffic analysis and penetration testing.</li>
+                        <li>Gained proficiency in navigating operating systems through CLI and UI, configuring Linux distributions (Kali, Parrot), and troubleshooting system issues.</li>
+                        <li>Mastered file permissions, installation of software, and system configurations to ensure security compliance.</li>
+                    </ul>
+                </div>
+                <div class="card scale-in">
+                    <h3>Hack The Box Academy Student</h3>
+                    <p>June 2024 - Present | Remote</p>
+                    <ul>
+                        <li>Ranked in the top 20% by successfully compromising targets on Hack The Box, simulating real-world hacking scenarios.</li>
+                        <li>Enhanced knowledge of Linux systems, penetration testing preparation, and hypervisors like VMware.</li>
+                        <li>Applied skills in using Wireshark, TCPDump, and ARP for traffic analysis, as well as performing DNS queries and analyzing traffic anomalies using tools like dig and nslookup.</li>
+                    </ul>
+                </div>
+                <div class="card scale-in">
+                    <h3>Cybersecurity Intern</h3>
+                    <p>October 2023 - November 2023 | Edunet by IBM, Remote</p>
+                    <ul>
+                        <li>Researched and implemented advanced steganography techniques for secure digital communication.</li>
+                        <li>Worked with SSL/TLS protocols to enhance encryption and secure data transmission across networks.</li>
+                    </ul>
+                </div>
+                <div class="card scale-in">
+                    <h3>Student Researcher</h3>
+                    <p>April 2024 - Present | Try Hack Me, Remote</p>
+                    <ul>
+                        <li>Participated in advanced penetration testing labs, covering SQL injection, brute force attacks, and network enumeration.</li>
+                        <li>Utilized tools such as nmap, ping, traceroute, and hping to perform network scanning and vulnerability assessments.</li>
+                    </ul>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="about">
-            <div class="container">
-                <h2 class="slide-in">About Me</h2>
-                <p class="fade-in">Proactive and detail-oriented cybersecurity professional with hands-on experience in ethical hacking, penetration testing, and system security analysis. Adept in identifying vulnerabilities, conducting network traffic analysis, and implementing mitigation strategies. Deep understanding of network fundamentals, OSI model and VPN. Proficient in cybersecurity tools like Nmap, Wireshark, and TCPDump, and skilled in configuring Linux (Kali, Parrot) and Mac OS systems. Actively engaged in self-learning and solving real-world security challenges.</p>
-            </div>
-        </section>
-
-        <section id="experience">
-            <div class="container">
-                <h2 class="slide-in">Experience</h2>
-                <div class="grid">
-                    <div class="card scale-in">
-                        <h3>Self-Learning and Independent Study in Cybersecurity</h3>
-                        <p>April 2024 - Present | Remote</p>
-                        <ul>
-                            <li>Performed subdomain enumeration and vulnerability assessments to identify and mitigate security risks.</li>
-                            <li>Utilized tools like Nmap, Burp Suite, and Wireshark for comprehensive network traffic analysis and penetration testing.</li>
-                            <li>Gained proficiency in navigating operating systems through CLI and UI, configuring Linux distributions (Kali, Parrot), and troubleshooting system issues.</li>
-                            <li>Mastered file permissions, installation of software, and system configurations to ensure security compliance.</li>
-                        </ul>
-                    </div>
-                    <div class="card scale-in">
-                        <h3>Hack The Box Academy Student</h3>
-                        <p>June 2024 - Present | Remote</p>
-                        <ul>
-                            <li>Ranked in the top 20% by successfully compromising targets on Hack The Box, simulating real-world hacking scenarios.</li>
-                            <li>Enhanced knowledge of Linux systems, penetration testing preparation, and hypervisors like VMware.</li>
-                            <li>Applied skills in using Wireshark, TCPDump, and ARP for traffic analysis, as well as performing DNS queries and analyzing traffic anomalies using tools like dig and nslookup.</li>
-                        </ul>
-                    </div>
-                    <div class="card scale-in">
-                        <h3>Cybersecurity Intern</h3>
-                        <p>October 2023 - November 2023 | Edunet by IBM, Remote</p>
-                        <ul>
-                            <li>Researched and implemented advanced steganography techniques for secure digital communication.</li>
-                            <li>Worked with SSL/TLS protocols to enhance encryption and secure data transmission across networks.</li>
-                        </ul>
-                    </div>
-                    <div class="card scale-in">
-                        <h3>Student Researcher</h3>
-                        <p>April 2024 - Present | Try Hack Me, Remote</p>
-                        <ul>
-                            <li>Participated in advanced penetration testing labs, covering SQL injection, brute force attacks, and network enumeration.</li>
-                            <li>Utilized tools such as nmap, ping, traceroute, and hping to perform network scanning and vulnerability assessments.</li>
-                        </ul>
-                    </div>
+    <section id="projects">
+        <div class="container">
+            <h2 class="slide-in">Projects</h2>
+            <div class="grid">
+                <div class="card scale-in">
+                    <h3>Steganography using Python</h3>
+                    <p>November 2023</p>
+                    <ul>
+                        <li>Integrated AES-256 encryption to securely embed messages within images using Python, ensuring the integrity of sensitive data.</li>
+                        <li>Applied PBKDF2 with SHA-256 for enhanced security.</li>
+                        <li>Utilized PyQt5 for GUI design, resulting in a user-friendly tool.</li>
+                    </ul>
+                </div>
+                <div class="card scale-in">
+                    <h3>Clima — Weather App</h3>
+                    <p>December 2022</p>
+                    <ul>
+                        <li>Built a Flutter-based weather application that retrieves real-time data using the OpenWeatherMap API, focusing on secure API handling.</li>
+                    </ul>
+                </div>
+                <div class="card scale-in">
+                    <h3>Book-App</h3>
+                    <p>February 2024</p>
+                    <ul>
+                        <li>Developed a RESTful API using Express.js and MongoDB, ensuring secure CRUD operations.</li>
+                        <li>Implemented CORS for cross-origin request security.</li>
+                    </ul>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="projects">
-            <div class="container">
-                <h2 class="slide-in">Projects</h2>
-                <div class="grid">
-                    <div class="card bounce-in">
-                        <h3>Steganography using Python</h3>
-                        <p>November 2023</p>
-                        <ul>
-                            <li>Integrated AES-256 encryption to securely embed messages within images using Python, ensuring the integrity of sensitive data.</li>
-                            <li>Applied PBKDF2 with SHA-256 for enhanced security.</li>
-                            <li>Utilized PyQt5 for GUI design, resulting in a user-friendly tool.</li>
-                        </ul>
-                    </div>
-                    <div class="card bounce-in">
-                        <h3>Clima — Weather App</h3>
-                        <p>December 2022</p>
-                        <ul>
-                            <li>Built a Flutter-based weather application that retrieves real-time data using the OpenWeatherMap API, focusing on secure API handling.</li>
-                        </ul>
-                    </div>
-                    <div class="card bounce-in">
-                        <h3>Book-App</h3>
-                        <p>February 2024</p>
-                        <ul>
-                            <li>Developed a RESTful API using Express.js and MongoDB, ensuring secure CRUD operations.</li>
-                            <li>Implemented CORS for cross-origin request security.</li>
-                        </ul>
-                    </div>
+    <section id="skills">
+        <div class="container">
+            <h2 class="slide-in">Skills</h2>
+            <div class="skills-list fade-in">
+                <span class="skill-tag">Linux (Kali, Parrot)</span>
+                <span class="skill-tag">Mac OS</span>
+                <span class="skill-tag">Networking</span>
+                <span class="skill-tag">Nmap</span>
+                <span class="skill-tag">Wireshark</span>
+                <span class="skill-tag">TCPDump</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">SQL</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">MERN Stack</span>
+                <span class="skill-tag">Flutter</span>
+                <span class="skill-tag">Ethical Hacking</span>
+                <span class="skill-tag">Penetration Testing</span>
+                <span class="skill-tag">Vulnerability Assessment</span>
+                <span class="skill-tag">Network Security</span>
+                <span class="skill-tag">Cryptography</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="container">
+            <h2 class="slide-in">Education</h2>
+            <div class="grid">
+                <div class="card scale-in">
+                    <h3>Bachelor of Computer Science & Engineering</h3>
+                    <p>August 2021 - May 2025 | Darshan University</p>
+                    <p>CGPA: 6.98</p>
+                    <p>Relevant Coursework: Data Structures, Algorithms, Operating Systems, Cybersecurity, Computer Networks, DBMS</p>
+                </div>
+                <div class="card scale-in">
+                    <h3>High School (Science, Group A)</h3>
+                    <p>April 2019 - October 2021 | Shree N.P. Bhalodya High School</p>
+                    <p>Grade: 72%</p>
+                    <p>Focused on: Physics, Chemistry, Mathematics</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="skills">
-            <div class="container">
-                <h2 class="slide-in">Skills</h2>
-                <div class="skills-list fade-in">
-                    <span class="skill-tag rotate-in">Linux (Kali, Parrot)</span>
-                    <span class="skill-tag rotate-in">Mac OS</span>
-                    <span class="skill-tag rotate-in">Networking</span>
-                    <span class="skill-tag rotate-in">Nmap</span>
-                    <span class="skill-tag rotate-in">Wireshark</span>
-                    <span class="skill-tag rotate-in">TCPDump</span>
-                    <span class="skill-tag rotate-in">Python</span>
-                    <span class="skill-tag rotate-in">SQL</span>
-                    <span class="skill-tag rotate-in">JavaScript</span>
-                    <span class="skill-tag rotate-in">MERN Stack</span>
-                    <span class="skill-tag rotate-in">Flutter</span>
-                    <span class="skill-tag rotate-in">Ethical Hacking</span>
-                    <span class="skill-tag rotate-in">Penetration Testing</span>
-                    <span class="skill-tag rotate-in">Vulnerability Assessment</span>
-                    <span class="skill-tag rotate-in">Network Security</span>
-                    <span class="skill-tag rotate-in">Cryptography</span>
-                </div>
-            </div>
-        </section>
+    <section id="certifications">
+        <div class="container">
+            <h2 class="slide-in">Certifications</h2>
+            <ul class="fade-in">
+                <li>Hack The Box Academy Certifications (Linux Fundamentals) - June 2024</li>
+                <li>Cybersecurity Fundamentals (IBM SkillsBuild) - September 2023 - November 2023</li>
+                <li>Prompt Engineering for ChatGPT (Vanderbilt University) - December 2022</li>
+                <li>SQL Certification (TestDome) - June 2022</li>
+            </ul>
+        </div>
+    </section>
 
-        <section id="education">
-            <div class="container">
-                <h2 class="slide-in">Education</h2>
-                <div class="grid">
-                    <div class="card scale-in">
-                        <h3>Bachelor of Computer Science & Engineering</h3>
-                        <p>August 2021 - May 2025 | Darshan University</p>
-                        <p>CGPA: 6.98</p>
-                        <p>Relevant Coursework: Data Structures, Algorithms, Operating Systems, Cybersecurity, Computer Networks, DBMS</p>
-                    </div>
-                    <div class="card scale-in">
-                        <h3>High School (Science, Group A)</h3>
-                        <p>April 2019 - October 2021 | Shree N.P. Bhalodya High School</p>
-                        <p>Grade: 72%</p>
-                        <p>Focused on: Physics, Chemistry, Mathematics</p>
-                    </div>
-                </div>
+    <section id="contact">
+        <div class="container">
+            <h2 class="slide-in">Get In Touch</h2>
+            <p class="fade-in">I'm always open to new opportunities and collaborations. Feel free to reach out!</p>
+            <p class="fade-in">Email: <a href="mailto:adityanagariyav@gmail.com" class="highlight">adityanagariyav@gmail.com</a></p>
+            <p class="fade-in">Phone: +91 9998272527</p>
+            <p class="fade-in">Location: Rajkot, IN</p>
+            <div class="social-icons fade-in">
+                <a href="https://linkedin.com/in/aditya-nagariya-veni-vidi-vici" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/Aditya-Nagariya" target="_blank"><i class="fab fa-github"></i></a>
             </div>
-        </section>
+        </div>
+    </section>
+</main>
 
-        <section id="certifications">
-            <div class="container">
-                <h2 class="slide-in">Certifications</h2>
-                <ul class="fade-in">
-                    <li>Hack The Box Academy Certifications (Linux Fundamentals) - June 2024</li>
-                    <li>Cybersecurity Fundamentals (IBM SkillsBuild) - September 2023 - November 2023</li>
-                    <li>Prompt Engineering for ChatGPT (Vanderbilt University) - December 2022</li>
-                    <li>SQL Certification (TestDome) - June 2022</li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="contact">
-            <div class="container">
-                <h2 class="slide-in">Get In Touch</h2>
-                <p class="fade-in">I'm always open to new opportunities and collaborations. Feel free to reach out!</p>
-                <p class="fade-in">Email: <a href="mailto:adityanagariyav@gmail.com" class="highlight">adityanagariyav@gmail.com</a></p>
-                <p class="fade-in">Phone: +91 9998272527</p>
-                <p class="fade-in">Location: Rajkot, IN</p>
-                <div class="social-icons fade-in">
-                    <a href="https://linkedin.com/in/aditya-nagariya-veni-vidi-vici" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/Aditya-Nagariya" target="_blank"><i class="fab fa-github"></i></a>
-                </div>
-            </div>
-        </section>
-    </main>
 
     <footer>
         <div class="container">
@@ -660,119 +593,25 @@
             }
         });
 
-        // Header hide on scroll
-        let lastScrollTop = 0;
-        const header = document.querySelector('header');
-        const scrollThreshold = 100;
+        // Section visibility animation
+        const sections = document.querySelectorAll('section');
+        const options = {
+            root: null,
+            threshold: 0.1,
+            rootMargin: "0px"
+        };
 
-        window.addEventListener('scroll', () => {
-            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            
-            if (scrollTop > lastScrollTop && scrollTop > scrollThreshold) {
-                header.classList.add('hide');
-            } else {
-                header.classList.remove('hide');
-            }
-            
-            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-        }, false);
-
-        // Responsive menu toggle
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navUl = document.querySelector('nav ul');
-
-        menuToggle.addEventListener('click', () => {
-            navUl.classList.toggle('show');
-        });
-
-        // Close menu when a link is clicked
-        document.querySelectorAll('nav ul li a').forEach(link => {
-            link.addEventListener('click', () => {
-                navUl.classList.remove('show');
-            });
-        });
-
-        // GSAP Animations
-        gsap.registerPlugin(ScrollTrigger);
-
-        // Fade-in animation for sections
-        gsap.utils.toArray('.fade-in').forEach(element => {
-            gsap.from(element, {
-                opacity: 0,
-                y: 50,
-                duration: 1,
-                scrollTrigger: {
-                    trigger: element,
-                    start: 'top 80%',
-                    toggleActions: 'play none none reverse'
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
                 }
             });
-        });
+        }, options);
 
-        // Scale-in animation for cards
-        gsap.utils.toArray('.scale-in').forEach(element => {
-            gsap.from(element, {
-                opacity: 0,
-                scale: 0.8,
-                duration: 0.8,
-                scrollTrigger: {
-                    trigger: element,
-                    start: 'top 80%',
-                    toggleActions: 'play none none reverse'
-                }
-            });
-        });
-
-        // Slide-in animation for headings
-        gsap.utils.toArray('.slide-in').forEach(element => {
-            gsap.from(element, {
-                opacity: 0,
-                x: -50,
-                duration: 0.8,
-                scrollTrigger: {
-                    trigger: element,
-                    start: 'top 80%',
-                    toggleActions: 'play none none reverse'
-                }
-            });
-        });
-
-        // Rotate-in animation for skill tags
-        gsap.utils.toArray('.rotate-in').forEach(element => {
-            gsap.from(element, {
-                opacity: 0,
-                rotation: -10,
-                duration: 0.8,
-                scrollTrigger: {
-                    trigger: element,
-                    start: 'top 90%',
-                    toggleActions: 'play none none reverse'
-                }
-            });
-        });
-
-        // Bounce-in animation for project cards
-        gsap.utils.toArray('.bounce-in').forEach(element => {
-            gsap.from(element, {
-                opacity: 0,
-                scale: 0.3,
-                duration: 0.8,
-                ease: "back.out(1.7)",
-                scrollTrigger: {
-                    trigger: element,
-                    start: 'top 80%',
-                    toggleActions: 'play none none reverse'
-                }
-            });
-        });
-
-        // Floating animation for the CTA button
-        gsap.to('.floating', {
-            y: 15,
-            duration: 2,
-            repeat: -1,
-            yoyo: true,
-            ease: "power1.inOut"
+        sections.forEach(section => {
+            observer.observe(section);
         });
 
         // Typing animation for the name in the hero section
@@ -792,28 +631,57 @@
         typeWriter();
 
         // Parallax effect for the hero section
-        gsap.to('.hero-content', {
-            yPercent: 50,
-            ease: "none",
-            scrollTrigger: {
-                trigger: ".hero",
-                start: "top top",
-                end: "bottom top",
-                scrub: true
-            }
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.pageYOffset;
+            const heroContent = document.querySelector('.hero-content');
+            heroContent.style.transform = `translateY(${scrollPosition * 0.3}px)`;
         });
 
         // Interactive skill tags
         const skillTags = document.querySelectorAll('.skill-tag');
         skillTags.forEach(tag => {
             tag.addEventListener('mouseover', () => {
-                gsap.to(tag, { scale: 1.1, duration: 0.3 });
+                tag.style.transform = 'scale(1.1)';
             });
             tag.addEventListener('mouseout', () => {
-                gsap.to(tag, { scale: 1, duration: 0.3 });
+                tag.style.transform = 'scale(1)';
             });
         });
+
+        // Responsive menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navUl = document.querySelector('nav ul');
+
+        menuToggle.addEventListener('click', () => {
+            navUl.classList.toggle('show');
+        });
+
+        // Close menu when a link is clicked
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                navUl.classList.remove('show');
+            });
+        });
+        let lastScrollTop = 0;
+        const header = document.querySelector('header');
+        const scrollThreshold = 100; // Adjust this value to change when the header starts hiding
+
+        window.addEventListener('scroll', () => {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > lastScrollTop && scrollTop > scrollThreshold) {
+                // Scrolling down & past threshold
+                header.classList.add('hide');
+            } else {
+                // Scrolling up or above threshold
+                header.classList.remove('hide');
+            }
+            
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For mobile or negative scrolling
+        }, false);
+
     </script>
 </body>
 </html>
+
 
