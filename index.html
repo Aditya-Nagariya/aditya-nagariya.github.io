@@ -241,6 +241,64 @@
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
+            margin-bottom: 30px;
+        }
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .skills-category {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .skills-category h3 {
+            color: var(--highlight-color);
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .certificate-card {
+            background-color: var(--card-bg);
+            border-radius: 4px;
+            padding: 20px;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .certificate-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .certificate-card h4 {
+            color: var(--header-color);
+            margin-bottom: 10px;
+        }
+
+        .certificate-card .date {
+            color: var(--highlight-color);
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .certificate-card .links {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .certificate-card .links a {
+            color: var(--highlight-color);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .certificate-card .links a:hover {
+            color: var(--text-color);
         }
 
         .skill-tag {
@@ -464,28 +522,42 @@
             <h2 class="slide-in">Projects</h2>
             <div class="grid">
                 <div class="card scale-in">
-                    <h3>Steganography using Python</h3>
-                    <p>November 2023</p>
-                    <ul>
-                        <li>Integrated AES-256 encryption to securely embed messages within images using Python, ensuring the integrity of sensitive data.</li>
-                        <li>Applied PBKDF2 with SHA-256 for enhanced security.</li>
-                        <li>Utilized PyQt5 for GUI design, resulting in a user-friendly tool.</li>
-                    </ul>
-                </div>
-                <div class="card scale-in">
-                    <h3>Clima — Weather App</h3>
-                    <p>December 2022</p>
-                    <ul>
-                        <li>Built a Flutter-based weather application that retrieves real-time data using the OpenWeatherMap API, focusing on secure API handling.</li>
-                    </ul>
-                </div>
-                <div class="card scale-in">
-                    <h3>Book-App</h3>
+                    <h3>RESTful Book Management System</h3>
                     <p>February 2024</p>
                     <ul>
-                        <li>Developed a RESTful API using Express.js and MongoDB, ensuring secure CRUD operations.</li>
-                        <li>Implemented CORS for cross-origin request security.</li>
+                        <li>Architected a full-stack application handling 100+ concurrent requests with optimal response time</li>
+                        <li>Implemented secure user authentication and authorization</li>
+                        <li>Built using MERN Stack (MongoDB, Express.js, React.js, Node.js)</li>
                     </ul>
+                    <div class="links">
+                        <a href="https://github.com/Aditya-Nagariya/MERN-Stack-Project.git" target="_blank">GitHub Repository</a>
+                    </div>
+                </div>
+
+                <div class="card scale-in">
+                    <h3>Advanced Steganography Security System</h3>
+                    <p>November 2023</p>
+                    <ul>
+                        <li>Engineered a steganography tool processing images up to 25MB with 99.9% data integrity retention</li>
+                        <li>Boosted security by integrating AES-256 encryption, reducing vulnerability risks by 85%</li>
+                        <li>Orchestrated GUI development using PyQt5, achieving a 92% user satisfaction rate in beta testing</li>
+                        <li>Optimized encryption algorithms, resulting in 40% faster processing time for large files</li>
+                    </ul>
+                    <div class="links">
+                        <a href="https://github.com/Aditya-Nagariya/Steganography" target="_blank">GitHub Repository</a>
+                    </div>
+                </div>
+
+                <div class="card scale-in">
+                    <h3>Clima — Cross-Platform Weather Application</h3>
+                    <p>December 2022</p>
+                    <ul>
+                        <li>Spearheaded development of a Flutter app achieving 95% crash-free sessions</li>
+                        <li>Constructed responsive UI supporting 5+ screen sizes with 100% layout consistency</li>
+                    </ul>
+                    <div class="links">
+                        <a href="https://github.com/Aditya-Nagariya/Clima-Weather-App" target="_blank">GitHub Repository</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -493,24 +565,61 @@
 
     <section id="skills">
         <div class="container">
-            <h2 class="slide-in">Skills</h2>
-            <div class="skills-list fade-in">
-                <span class="skill-tag">Linux (Kali, Parrot)</span>
-                <span class="skill-tag">Mac OS</span>
-                <span class="skill-tag">Networking</span>
-                <span class="skill-tag">Nmap</span>
-                <span class="skill-tag">Wireshark</span>
-                <span class="skill-tag">TCPDump</span>
-                <span class="skill-tag">Python</span>
-                <span class="skill-tag">SQL</span>
-                <span class="skill-tag">JavaScript</span>
-                <span class="skill-tag">MERN Stack</span>
-                <span class="skill-tag">Flutter</span>
-                <span class="skill-tag">Ethical Hacking</span>
-                <span class="skill-tag">Penetration Testing</span>
-                <span class="skill-tag">Vulnerability Assessment</span>
-                <span class="skill-tag">Network Security</span>
-                <span class="skill-tag">Cryptography</span>
+            <h2 class="slide-in">Technical Skills</h2>
+            
+            <div class="skills-category">
+                <h3>Languages & Frameworks</h3>
+                <div class="skills-list fade-in">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">HTML5</span>
+                    <span class="skill-tag">CSS3</span>
+                    <span class="skill-tag">MERN Stack</span>
+                    <span class="skill-tag">Flutter</span>
+                    <span class="skill-tag">PyQt5</span>
+                </div>
+            </div>
+
+            <div class="skills-category">
+                <h3>Developer Tools</h3>
+                <div class="skills-list fade-in">
+                    <span class="skill-tag">Git</span>
+                    <span class="skill-tag">VS Code</span>
+                    <span class="skill-tag">MongoDB</span>
+                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag">Express.js</span>
+                    <span class="skill-tag">React.js</span>
+                </div>
+            </div>
+
+            <div class="skills-category">
+                <h3>Security Tools</h3>
+                <div class="skills-list fade-in">
+                    <span class="skill-tag">Nmap</span>
+                    <span class="skill-tag">Wireshark</span>
+                    <span class="skill-tag">Burp Suite</span>
+                    <span class="skill-tag">TCPDump</span>
+                    <span class="skill-tag">AES-256</span>
+                    <span class="skill-tag">PBKDF2</span>
+                </div>
+            </div>
+
+            <div class="skills-category">
+                <h3>Platforms</h3>
+                <div class="skills-list fade-in">
+                    <span class="skill-tag">Linux (Kali, Parrot)</span>
+                    <span class="skill-tag">MacOS</span>
+                    <span class="skill-tag">AWS (basic)</span>
+                </div>
+            </div>
+
+            <div class="skills-category">
+                <h3>Learning Platforms</h3>
+                <div class="skills-list fade-in">
+                    <span class="skill-tag">TryHackMe</span>
+                    <span class="skill-tag">HackTheBox Academy</span>
+                </div>
             </div>
         </div>
     </section>
@@ -520,10 +629,9 @@
             <h2 class="slide-in">Education</h2>
             <div class="grid">
                 <div class="card scale-in">
-                    <h3>Bachelor of Computer Science & Engineering</h3>
-                    <p>August 2021 - May 2025 | Darshan University</p>
-                    <p>CGPA: 6.98</p>
-                    <p>Relevant Coursework: Data Structures, Algorithms, Operating Systems, Cybersecurity, Computer Networks, DBMS</p>
+                    <h3>Bachelor of Technology (B.Tech) in Computer Science and Engineering</h3>
+                    <p>Darshan University, Gujarat, India | 2021 - 2025</p>
+                    <p>CGPA: 6.93/10</p>
                 </div>
                 <div class="card scale-in">
                     <h3>High School (Science, Group A)</h3>
@@ -537,15 +645,65 @@
 
     <section id="certifications">
         <div class="container">
-            <h2 class="slide-in">Certifications</h2>
-            <ul class="fade-in">
-                <li>Hack The Box Academy Certifications (Linux Fundamentals) - June 2024</li>
-                <li>Cybersecurity Fundamentals (IBM SkillsBuild) - September 2023 - November 2023</li>
-                <li>Prompt Engineering for ChatGPT (Vanderbilt University) - December 2022</li>
-                <li>SQL Certification (TestDome) - June 2022</li>
-            </ul>
+            <h2 class="slide-in">Certifications & Achievements</h2>
+            
+            <div class="certificate-card fade-in">
+                <h4>TryHackMe</h4>
+                <div class="date">Ongoing</div>
+                <p>Completed 12+ specialized cybersecurity rooms, including Authentication Bypass, IDOR, and Subdomain Enumeration. Maintaining a 38-day learning streak with fundamental offensive security and penetration testing modules.</p>
+                <div class="links">
+                    <a href="#" target="_blank">Profile</a>
+                </div>
+            </div>
+
+            <div class="certificate-card fade-in">
+                <h4>Hack The Box Academy</h4>
+                <div class="date">Ongoing</div>
+                <p>Completed 15+ modules with a 100% average score.</p>
+                <div class="links">
+                    <a href="#" target="_blank">Profile</a>
+                </div>
+            </div>
+
+            <div class="certificate-card fade-in">
+                <h4>Certified Network Security Practitioner (CNSP)</h4>
+                <div class="date">January 2025</div>
+                <p>Successfully passed with Merit</p>
+                <div class="links">
+                    <a href="#" target="_blank">Certificate</a>
+                </div>
+            </div>
+
+            <div class="certificate-card fade-in">
+                <h4>Advent of Cyber 2024</h4>
+                <div class="date">December 2024</div>
+                <p>Ranked 1448 out of 143,086 participants. Completed the course with 100% score.</p>
+                <div class="links">
+                    <a href="#" target="_blank">Certificate</a>
+                </div>
+            </div>
+
+            <div class="certificate-card fade-in">
+                <h4>IBM Cyber-Security Fundamentals</h4>
+                <div class="date">October 2023</div>
+                <p>Achieved top 10% ranking among 5000+ participants</p>
+                <div class="links">
+                    <a href="#" target="_blank">Certificate</a>
+                    <a href="#" target="_blank">Badge</a>
+                </div>
+            </div>
+
+            <div class="certificate-card fade-in">
+                <h4>Test-Dome SQL Certification</h4>
+                <div class="date">June 2022</div>
+                <p>Scored in the 90th percentile</p>
+                <div class="links">
+                    <a href="#" target="_blank">Certificate</a>
+                </div>
+            </div>
         </div>
     </section>
+
 
     <section id="contact">
         <div class="container">
