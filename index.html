@@ -358,6 +358,30 @@
             color: var(--header-color);
             cursor: pointer;
         }
+                /* Links Style */
+        .links a {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            color: var(--primary);
+            text-decoration: none;
+            font-size: var(--font-sm);
+            transition: all 0.3s var(--ease);
+        }
+
+        .links a:hover {
+            color: var(--white);
+        }
+
+        .links a::after {
+            content: '→';
+            transition: transform 0.3s var(--ease);
+        }
+
+        .links a:hover::after {
+            transform: translateX(5px);
+        }
+
 
         @media (max-width: 768px) {
             .container {
