@@ -359,121 +359,29 @@
             cursor: pointer;
         }
                 /* Links Style */
-        :root {
-        --transition-speed: 0.3s;
-        --transition-ease: cubic-bezier(0.4, 0, 0.2, 1);
-        --spacing-xs: 0.5rem;
-        --spacing-sm: 1rem;
-        --spacing-md: 1.5rem;
-        --spacing-lg: 2rem;
-    }
+        .links a {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            color: var(--primary);
+            text-decoration: none;
+            font-size: var(--font-sm);
+            transition: all 0.3s var(--ease);
+        }
 
-    /* Existing styles remain the same until animations */
+        .links a:hover {
+            color: var(--Primary);
+        }
 
-    /* Animation Classes */
-    .fade-in {
-        opacity: 0;
-        transform: translateY(20px);
-        transition: opacity var(--transition-speed) var(--transition-ease),
-                    transform var(--transition-speed) var(--transition-ease);
-    }
+        .links a::after {
+            content: '→';
+            transition: transform 0.3s var(--ease);
+        }
 
-    .scale-in {
-        opacity: 0;
-        transform: scale(0.95);
-        transition: opacity var(--transition-speed) var(--transition-ease),
-                    transform var(--transition-speed) var(--transition-ease);
-    }
+        .links a:hover::after {
+            transform: translateX(5px);
+        }
 
-    .slide-in {
-        opacity: 0;
-        transform: translateX(-20px);
-        transition: opacity var(--transition-speed) var(--transition-ease),
-                    transform var(--transition-speed) var(--transition-ease);
-    }
-
-    /* Visible state for all animations */
-    .visible .fade-in,
-    .visible .scale-in,
-    .visible .slide-in {
-        opacity: 1;
-        transform: translate(0) scale(1);
-    }
-
-    /* Typing animation refinements */
-    .typing {
-        overflow: hidden;
-        border-right: 2px solid var(--highlight-color);
-        white-space: nowrap;
-        margin: 0 auto;
-        letter-spacing: 0.15em;
-    }
-
-    /* Refined keyframe animations */
-    @keyframes typing {
-        from { width: 0 }
-        to { width: 100% }
-    }
-
-    @keyframes blink-caret {
-        from, to { border-color: transparent }
-        50% { border-color: var(--highlight-color) }
-    }
-
-    /* Consistent hover transitions */
-    .card,
-    .skill-tag,
-    .social-icons a,
-    .btn,
-    nav ul li a {
-        transition: all var(--transition-speed) var(--transition-ease);
-    }
-
-    /* Refined card hover effect */
-    .card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-    }
-
-    /* Consistent skill tag hover effect */
-    .skill-tag:hover {
-        transform: translateY(-2px);
-        background-color: var(--highlight-color);
-        color: var(--bg-color);
-    }
-
-    /* Header hide animation */
-    header {
-        transition: transform var(--transition-speed) var(--transition-ease);
-    }
-
-    header.hide {
-        transform: translateY(-100%);
-    }
-
-    /* Parallax effect smoothing */
-    .hero-content {
-        transition: transform var(--transition-speed) var(--transition-ease);
-    }
-
-    /* Certificate card hover refinement */
-    .certificate-card {
-        transition: all var(--transition-speed) var(--transition-ease);
-    }
-
-    .certificate-card:hover {
-        transform: translateY(-5px);
-        box-shadow: var(--card-shadow);
-    }
-
-    /* Links hover effect consistency */
-    .links a {
-        transition: all var(--transition-speed) var(--transition-ease);
-    }
-
-    .links a:hover::after {
-        transform: translateX(5px);
-    }
 
         @media (max-width: 768px) {
             .container {
@@ -664,7 +572,7 @@
                     </div>
                 </div>
 
-                <div class="card fade-in">
+                <div class="card scale-in">
                     <h3>Clima — Cross-Platform Weather Application</h3>
                     <p>December 2022</p>
                     <ul>
@@ -956,67 +864,7 @@
             
             lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For mobile or negative scrolling
         }, false);
-            // Refined animation observer
-    const animateElements = (entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                // Only unobserve if it's not a repeating animation
-                if (!entry.target.classList.contains('repeat-animation')) {
-                    observer.unobserve(entry.target);
-                }
-            }
-        });
-    };
 
-    const observer = new IntersectionObserver(animateElements, {
-        root: null,
-        threshold: 0.1,
-        rootMargin: "0px"
-    });
-
-    // Observe all sections and elements with animation classes
-    document.querySelectorAll('section, .fade-in, .scale-in, .slide-in').forEach(element => {
-        observer.observe(element);
-    });
-
-    // Refined typing animation
-    const typeWriter = (element, text, speed = 100) => {
-        let i = 0;
-        element.textContent = '';
-        
-        const type = () => {
-            if (i < text.length) {
-                element.textContent += text.charAt(i);
-                i++;
-                setTimeout(type, speed);
-            }
-        };
-        
-        type();
-    };
-
-    const typingElement = document.querySelector('.typing');
-    if (typingElement) {
-        const fullName = typingElement.textContent;
-        typeWriter(typingElement, fullName);
-    }
-
-    // Smooth parallax effect
-    let ticking = false;
-    window.addEventListener('scroll', () => {
-        if (!ticking) {
-            window.requestAnimationFrame(() => {
-                const scrollPosition = window.pageYOffset;
-                const heroContent = document.querySelector('.hero-content');
-                if (heroContent) {
-                    heroContent.style.transform = `translateY(${scrollPosition * 0.3}px)`;
-                }
-                ticking = false;
-            });
-            ticking = true;
-        }
-    });
     </script>
 </body>
 </html>
