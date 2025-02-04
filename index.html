@@ -456,6 +456,76 @@
         header.hide {
             transform: translateY(-100%);
         }
+        .card .links {
+        display: flex;
+        gap: 15px;
+        margin-top: 10px;
+    }
+
+    .card .links a {
+        color: var(--highlight-color);
+        text-decoration: none;
+        font-size: 14px;
+        position: relative;
+        padding-right: 20px;
+        transition: color 0.3s ease;
+    }
+
+    .card .links a::after {
+        content: '→';
+        position: absolute;
+        right: 0;
+        opacity: 0;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .card .links a:hover {
+        color: var(--text-color);
+    }
+
+    .card .links a:hover::after {
+        opacity: 1;
+        transform: translateX(5px);
+    }
+
+    /* Animation for links appearing */
+    .card .links {
+        opacity: 0;
+        transform: translateY(10px);
+        animation: fadeInUp 0.5s ease forwards;
+        animation-delay: 0.2s;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Ensure consistent spacing */
+    .card .links a:not(:last-child) {
+        margin-right: 15px;
+    }
+
+    /* Hover effect for the entire card */
+    .card:hover .links a {
+        color: var(--highlight-color);
+    }
+
+    /* Update existing card hover state */
+    .card:hover .links a::after {
+        opacity: 0.5;
+    }
+
+    .card:hover .links a:hover::after {
+        opacity: 1;
+    }
+
     </style>
 </head>
 <body>
@@ -864,75 +934,6 @@
             
             lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For mobile or negative scrolling
         }, false);
-        .card .links {
-        display: flex;
-        gap: 15px;
-        margin-top: 10px;
-    }
-
-    .card .links a {
-        color: var(--highlight-color);
-        text-decoration: none;
-        font-size: 14px;
-        position: relative;
-        padding-right: 20px;
-        transition: color 0.3s ease;
-    }
-
-    .card .links a::after {
-        content: '→';
-        position: absolute;
-        right: 0;
-        opacity: 0;
-        transition: opacity 0.3s ease, transform 0.3s ease;
-    }
-
-    .card .links a:hover {
-        color: var(--text-color);
-    }
-
-    .card .links a:hover::after {
-        opacity: 1;
-        transform: translateX(5px);
-    }
-
-    /* Animation for links appearing */
-    .card .links {
-        opacity: 0;
-        transform: translateY(10px);
-        animation: fadeInUp 0.5s ease forwards;
-        animation-delay: 0.2s;
-    }
-
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(10px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    /* Ensure consistent spacing */
-    .card .links a:not(:last-child) {
-        margin-right: 15px;
-    }
-
-    /* Hover effect for the entire card */
-    .card:hover .links a {
-        color: var(--highlight-color);
-    }
-
-    /* Update existing card hover state */
-    .card:hover .links a::after {
-        opacity: 0.5;
-    }
-
-    .card:hover .links a:hover::after {
-        opacity: 1;
-    }
     </script>
 </body>
 </html>
