@@ -358,30 +358,6 @@
             color: var(--header-color);
             cursor: pointer;
         }
-                /* Links Style */
-        .links a {
-            display: inline-flex;
-            align-items: center;
-            gap: var(--spacing-xs);
-            color: var(--primary);
-            text-decoration: none;
-            font-size: var(--font-sm);
-            transition: all 0.3s var(--ease);
-        }
-
-        .links a:hover {
-            color: var(--Primary);
-        }
-
-        .links a::after {
-            content: '→';
-            transition: transform 0.3s var(--ease);
-        }
-
-        .links a:hover::after {
-            transform: translateX(5px);
-        }
-
 
         @media (max-width: 768px) {
             .container {
@@ -456,76 +432,6 @@
         header.hide {
             transform: translateY(-100%);
         }
-        .card .links {
-        display: flex;
-        gap: 15px;
-        margin-top: 10px;
-    }
-
-    .card .links a {
-        color: var(--highlight-color);
-        text-decoration: none;
-        font-size: 14px;
-        position: relative;
-        padding-right: 20px;
-        transition: color 0.3s ease;
-    }
-
-    .card .links a::after {
-        content: '→';
-        position: absolute;
-        right: 0;
-        opacity: 0;
-        transition: opacity 0.3s ease, transform 0.3s ease;
-    }
-
-    .card .links a:hover {
-        color: var(--text-color);
-    }
-
-    .card .links a:hover::after {
-        opacity: 1;
-        transform: translateX(5px);
-    }
-
-    /* Animation for links appearing */
-    .card .links {
-        opacity: 0;
-        transform: translateY(10px);
-        animation: fadeInUp 0.5s ease forwards;
-        animation-delay: 0.2s;
-    }
-
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(10px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    /* Ensure consistent spacing */
-    .card .links a:not(:last-child) {
-        margin-right: 15px;
-    }
-
-    /* Hover effect for the entire card */
-    .card:hover .links a {
-        color: var(--highlight-color);
-    }
-
-    /* Update existing card hover state */
-    .card:hover .links a::after {
-        opacity: 0.5;
-    }
-
-    .card:hover .links a:hover::after {
-        opacity: 1;
-    }
-
     </style>
 </head>
 <body>
@@ -537,6 +443,7 @@
                     <li><a href="#experience">Experience</a></li>
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#skills">Skills</a></li>
+                    <li><a href="#certifications">Certifications</a></li>
                     <li><a href="#education">Education</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -741,63 +648,93 @@
         <div class="container">
             <h2 class="slide-in">Certifications & Achievements</h2>
             
-            <div class="certificate-card fade-in">
-                <h4>TryHackMe</h4>
-                <div class="date">Ongoing</div>
-                <p>Completed 12+ specialized cybersecurity rooms, including Authentication Bypass, IDOR, and Subdomain Enumeration. Maintaining a 38-day learning streak with fundamental offensive security and penetration testing modules.</p>
-                <div class="links">
-                   <a href="https://tryhackme.com/r/p/AdityaNagariya" target="_blank">Profile</a>
+            <div class="skills-category">
+                <h3>Cybersecurity Platforms</h3>
+                
+                <div class="certificate-card fade-in">
+                    <h4>TryHackMe</h4>
+                    <div class="date">Ongoing</div>
+                    <p>Completed 12+ specialized cybersecurity rooms, including Authentication Bypass, IDOR, and Subdomain Enumeration. Maintaining a 38-day learning streak with fundamental offensive security and penetration testing modules.</p>
+                    <ul>
+                        <li>Top 10% on the global leaderboard for June 2024</li>
+                        <li>Completed Web Application Security track with 100% score</li>
+                        <li>Earned 8 badges including Complete Beginner, Offensive Pentesting, and Web Fundamentals</li>
+                    </ul>
+                    <div class="tryhackme-progress">
+                        <iframe src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=2619385" style='border:none; width:100%; height:180px;'></iframe>
+                    </div>
+                    <div class="links">
+                        <a href="https://tryhackme.com/r/p/AdityaNagariya" target="_blank">View Profile <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <div class="certificate-card fade-in">
+                    <h4>Hack The Box Academy</h4>
+                    <div class="date">Ongoing</div>
+                    <p>Completed 15+ modules with a 100% average score. Currently focusing on network penetration testing and privilege escalation techniques.</p>
+                    <ul>
+                        <li>Completed "Introduction to Network Traffic Analysis" with perfect score</li>
+                        <li>Solved 8+ boxes in the Easy to Medium difficulty range</li>
+                        <li>Ranked in top 20% of active users in July 2024</li>
+                    </ul>
+                    <div class="links">
+                        <a href="https://app.hackthebox.com/profile/1471799" target="_blank">View Profile <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="skills-category">
+                <h3>Professional Certifications</h3>
+                
+                <div class="certificate-card fade-in">
+                    <h4>Certified Network Security Practitioner (CNSP)</h4>
+                    <div class="date">January 2025</div>
+                    <p>Successfully passed with Merit, demonstrating comprehensive knowledge in network security principles, vulnerability assessment, and security architecture.</p>
+                    <div class="links">
+                        <a href="https://candidate.speedexam.net/certificate.aspx?SSTATE=am4131EniU8ntjp4bO5mXRTcxhSYYbHvMp/7NNjZI0Fig3VVmXBPo7tnybqRym5rLAh5m8/L7mfRubFOmS+1dj9ISarRzbIhMckYLtLwBEs=" target="_blank">View Certificate <i class="fas fa-certificate"></i></a>
+                    </div>
+                </div>
+
+                <div class="certificate-card fade-in">
+                    <h4>IBM Cyber-Security Fundamentals</h4>
+                    <div class="date">October 2023</div>
+                    <p>Achieved top 10% ranking among 5000+ participants. Covered essential cyber security concepts including threat intelligence, network security, and incident response.</p>
+                    <div class="links">
+                        <a href="https://drive.google.com/file/d/1MgPJSCsYuZqeUpWK1W3iUDZyGaGSJFRC/view?usp=sharing" target="_blank">View Certificate <i class="fas fa-certificate"></i></a>
+                        <a href="https://www.credly.com/go/xhCLJCAm" target="_blank">View Badge <i class="fas fa-award"></i></a>
+                    </div>
+                </div>
+
+                <div class="certificate-card fade-in">
+                    <h4>Test-Dome SQL Certification</h4>
+                    <div class="date">June 2022</div>
+                    <p>Scored in the 90th percentile, demonstrating advanced proficiency in SQL queries, database management, and data extraction.</p>
+                    <div class="links">
+                        <a href="http://www.testdome.com/certificates/7eecbd9af3134abdbba959a63d413045" target="_blank">View Certificate <i class="fas fa-certificate"></i></a>
+                    </div>
                 </div>
             </div>
 
-            <div class="certificate-card fade-in">
-                <h4>Hack The Box Academy</h4>
-                <div class="date">Ongoing</div>
-                <p>Completed 15+ modules with a 100% average score.</p>
-                <div class="links">
-                    <a href="https://app.hackthebox.com/profile/1471799" target="_blank">Profile</a>
-                </div>
-            </div>
+            <div class="skills-category">
+                <h3>Competitions & Events</h3>
 
-            <div class="certificate-card fade-in">
-                <h4>Certified Network Security Practitioner (CNSP)</h4>
-                <div class="date">January 2025</div>
-                <p>Successfully passed with Merit</p>
-                <div class="links">
-                    <a href="https://candidate.speedexam.net/certificate.aspx?SSTATE=am4131EniU8ntjp4bO5mXRTcxhSYYbHvMp/7NNjZI0Fig3VVmXBPo7tnybqRym5rLAh5m8/L7mfRubFOmS+1dj9ISarRzbIhMckYLtLwBEs=" target="_blank">Certificate</a>
+                <div class="certificate-card fade-in">
+                    <h4>Advent of Cyber 2024</h4>
+                    <div class="date">December 2024</div>
+                    <p>Ranked 1448 out of 143,086 participants in this global cybersecurity challenge. Completed all 25 days of security challenges covering web exploitation, network analysis, and OSINT.</p>
+                    <div class="links">
+                        <a href="https://tryhackme.com/r/AdityaNagariya/badges/adventofcyber2024" target="_blank">View Certificate <i class="fas fa-certificate"></i></a>
+                    </div>
                 </div>
-            </div>
-
-            <div class="certificate-card fade-in">
-                <h4>Advent of Cyber 2024</h4>
-                <div class="date">December 2024</div>
-                <p>Ranked 1448 out of 143,086 participants. Completed the course with 100% score.</p>
-                <div class="links">
-                    <a href="https://tryhackme.com/r/AdityaNagariya/badges/adventofcyber2024" target="_blank">Certificate</a>
-                </div>
-            </div>
-
-            <div class="certificate-card fade-in">
-                <h4>IBM Cyber-Security Fundamentals</h4>
-                <div class="date">October 2023</div>
-                <p>Achieved top 10% ranking among 5000+ participants</p>
-                <div class="links">
-                    <a href="https://drive.google.com/file/d/1MgPJSCsYuZqeUpWK1W3iUDZyGaGSJFRC/view?usp=sharing" target="_blank">Certificate</a>
-                    <a href="https://www.credly.com/go/xhCLJCAm" target="_blank">Badge</a>
-                </div>
-            </div>
-
-            <div class="certificate-card fade-in">
-                <h4>Test-Dome SQL Certification</h4>
-                <div class="date">June 2022</div>
-                <p>Scored in the 90th percentile</p>
-                <div class="links">
-                    <a href="http://www.testdome.com/certificates/7eecbd9af3134abdbba959a63d413045" target="_blank">Certificate</a>
+                
+                <div class="certificate-card fade-in">
+                    <h4>National Cyber Olympiad</h4>
+                    <div class="date">September 2023</div>
+                    <p>Secured position in the top 5% nationally, demonstrating exceptional problem-solving skills and cybersecurity knowledge.</p>
                 </div>
             </div>
         </div>
     </section>
-
 
     <section id="contact">
         <div class="container">
@@ -934,6 +871,7 @@
             
             lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For mobile or negative scrolling
         }, false);
+
     </script>
 </body>
 </html>
