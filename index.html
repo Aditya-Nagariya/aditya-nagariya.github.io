@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aditya Nagariya | AI & Security Engineer</title>
+    <title>Aditya Nagariya | AI Engineer & Security Architect</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,56 +11,51 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+
     <style>
         /* =========================================
-           TITANIUM DESIGN SYSTEM
+           DESIGN TOKENS
         ========================================= */
         :root {
-            /* Backgrounds */
-            --bg-body: #050507;
-            --bg-sidebar: rgba(10, 10, 12, 0.95);
-            --bg-card: #141416;
-            --bg-card-hover: #1e1e21;
+            --bg-body: #000000;
+            --bg-sidebar: rgba(10, 10, 10, 0.8);
+            --bg-card: #111113;
+            --bg-card-hover: #1a1a1c;
             
-            /* Accents (Neon/Apple Hybrid) */
-            --accent-blue: #2997ff; 
+            /* Apple-inspired Neons */
+            --accent-blue: #0a84ff; 
             --accent-purple: #bf5af2;
             --accent-green: #30d158;
             --accent-orange: #ff9f0a;
             
-            /* Text */
-            --text-primary: #f5f5f7;
+            --text-primary: #ffffff;
             --text-secondary: #86868b;
-            --text-tertiary: #56565c;
-
-            /* Borders */
+            
             --border: rgba(255, 255, 255, 0.1);
-            --radius-lg: 18px;
-            --radius-sm: 8px;
+            --radius: 20px;
             
             --font-main: 'Inter', system-ui, sans-serif;
             --font-mono: 'JetBrains Mono', monospace;
         }
 
-        /* RESET */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        html { scroll-behavior: smooth; }
         
         body {
             background-color: var(--bg-body);
             color: var(--text-primary);
             font-family: var(--font-main);
-            line-height: 1.6;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
 
-        a { text-decoration: none; color: inherit; transition: 0.2s; }
+        a { text-decoration: none; color: inherit; cursor: pointer; }
         ul { list-style: none; }
 
         /* =========================================
-           SIDEBAR NAVIGATION (Fixed Left)
+           SIDEBAR
         ========================================= */
         .sidebar {
             position: fixed;
@@ -68,60 +63,41 @@
             width: 260px;
             height: 100vh;
             background: var(--bg-sidebar);
+            backdrop-filter: blur(20px);
             border-right: 1px solid var(--border);
             padding: 40px 24px;
             z-index: 1000;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            display: flex; flex-direction: column; justify-content: space-between;
         }
 
         .brand {
-            font-size: 0.9rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            color: var(--text-primary);
-            text-transform: uppercase;
-            margin-bottom: 40px;
+            font-size: 0.85rem; font-weight: 700; letter-spacing: 1px;
+            color: var(--text-primary); text-transform: uppercase;
             display: flex; align-items: center; gap: 10px;
         }
-        
-        .status-dot { width: 8px; height: 8px; background: var(--accent-green); border-radius: 50%; box-shadow: 0 0 8px var(--accent-green); }
+        .status-dot { width: 6px; height: 6px; background: var(--accent-green); border-radius: 50%; box-shadow: 0 0 10px var(--accent-green); }
 
-        .nav-menu { display: flex; flex-direction: column; gap: 6px; }
+        .nav-menu { display: flex; flex-direction: column; gap: 4px; }
         
         .nav-item {
-            padding: 10px 12px;
-            border-radius: var(--radius-sm);
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            font-weight: 500;
+            padding: 12px; border-radius: 8px;
+            color: var(--text-secondary); font-size: 0.9rem; font-weight: 500;
             display: flex; align-items: center; gap: 12px;
-            transition: all 0.2s;
+            transition: all 0.2s ease;
         }
 
         .nav-item:hover, .nav-item.active {
-            background: rgba(255,255,255,0.05);
-            color: var(--text-primary);
+            background: rgba(255,255,255,0.08); color: #fff;
         }
-        
-        .nav-item.active { border-left: 3px solid var(--accent-blue); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; }
-        
-        .nav-item i { width: 20px; text-align: center; }
+        .nav-item.active { border-left: 3px solid var(--accent-blue); }
 
-        .social-links { display: flex; gap: 15px; margin-top: auto; }
-        .social-links a { color: var(--text-secondary); font-size: 1.1rem; }
-        .social-links a:hover { color: var(--text-primary); transform: translateY(-2px); }
+        .socials { display: flex; gap: 15px; }
+        .socials a:hover { color: #fff; transform: scale(1.1); }
 
         /* =========================================
-           MAIN CONTENT AREA
+           MAIN WRAPPER
         ========================================= */
-        .main {
-            margin-left: 260px;
-            padding: 0;
-            width: calc(100% - 260px);
-            position: relative;
-        }
+        .main { margin-left: 260px; width: calc(100% - 260px); }
 
         /* =========================================
            HERO SECTION
@@ -129,174 +105,148 @@
         .hero {
             height: 90vh;
             display: flex; flex-direction: column; justify-content: center;
-            padding: 0 8%;
-            background: radial-gradient(circle at 80% 20%, rgba(41, 151, 255, 0.08), transparent 40%);
+            padding: 0 10%;
+            background: radial-gradient(circle at 70% 30%, rgba(10, 132, 255, 0.1), transparent 50%);
             border-bottom: 1px solid var(--border);
         }
 
         .hero-tag {
-            font-family: var(--font-mono);
-            font-size: 0.8rem;
-            color: var(--accent-blue);
-            margin-bottom: 20px;
-            display: block;
+            font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-blue);
+            margin-bottom: 20px; display: inline-block;
+            opacity: 0; /* Animated in */
         }
 
         .hero h1 {
-            font-size: clamp(3rem, 5vw, 4.5rem);
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 24px;
-            background: linear-gradient(180deg, #fff 0%, #a1a1aa 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-size: clamp(3rem, 5vw, 5rem);
+            font-weight: 800; line-height: 1.1; margin-bottom: 24px;
+            background: linear-gradient(180deg, #fff 0%, #888 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            opacity: 0; /* Animated in */
         }
 
         .hero p {
-            font-size: 1.2rem;
-            color: var(--text-secondary);
-            max-width: 650px;
-            margin-bottom: 40px;
+            font-size: 1.2rem; color: var(--text-secondary); max-width: 600px; margin-bottom: 40px;
+            opacity: 0; /* Animated in */
         }
-        
-        .cta-row { display: flex; gap: 16px; }
+
+        .btn-group { display: flex; gap: 15px; opacity: 0; /* Animated in */ }
         
         .btn {
-            padding: 12px 24px;
-            border-radius: var(--radius-sm);
-            font-weight: 600;
-            font-size: 0.95rem;
-            border: 1px solid var(--border);
-            background: rgba(255,255,255,0.05);
+            padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 0.9rem;
+            border: 1px solid var(--border); background: rgba(255,255,255,0.05);
+            transition: 0.3s;
         }
-        .btn.primary { background: var(--text-primary); color: #000; border-color: #fff; }
-        .btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+        .btn:hover { background: #fff; color: #000; border-color: #fff; }
 
         /* =========================================
-           STICKY "APPLE STYLE" PROJECTS
+           STICKY PROJECTS (Interactive)
         ========================================= */
-        .sticky-wrapper {
-            position: relative;
-            height: 350vh; /* Scroll space */
-        }
-
+        .sticky-wrapper { position: relative; height: 350vh; }
         .sticky-container {
-            position: sticky;
-            top: 0;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            overflow: hidden;
-            background: var(--bg-body);
+            position: sticky; top: 0; height: 100vh;
+            display: flex; align-items: center; overflow: hidden;
+            background: #000;
         }
 
-        .project-details {
-            width: 40%;
-            padding-left: 8%;
-            z-index: 2;
-        }
-        
-        .p-label { color: var(--accent-purple); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem; margin-bottom: 10px; }
-        .p-title { font-size: 3rem; font-weight: 800; margin-bottom: 20px; line-height: 1.1; }
+        .project-text { width: 40%; padding-left: 10%; z-index: 2; }
+        .p-label { color: var(--accent-purple); font-weight: 700; letter-spacing: 2px; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 15px; }
+        .p-title { font-size: 3.5rem; font-weight: 800; margin-bottom: 20px; line-height: 1; }
         .p-desc { color: var(--text-secondary); font-size: 1.1rem; line-height: 1.6; margin-bottom: 30px; }
         
-        .tech-stack { display: flex; gap: 10px; flex-wrap: wrap; }
-        .tech-tag { 
+        .p-tech { display: flex; gap: 8px; flex-wrap: wrap; }
+        .tag { 
             padding: 6px 12px; background: rgba(255,255,255,0.08); 
             border-radius: 4px; font-size: 0.8rem; color: #ccc; font-family: var(--font-mono);
         }
 
         .project-visuals {
-            width: 60%;
-            height: 100%;
-            position: relative;
+            width: 60%; height: 100%; position: relative;
             display: flex; align-items: center; justify-content: center;
         }
         
         .visual-card {
             position: absolute;
-            width: 550px; height: 380px;
-            background: #101012;
+            width: 500px; height: 350px;
+            background: #0f0f11;
             border: 1px solid var(--border);
             border-radius: 24px;
             padding: 40px;
             display: flex; flex-direction: column; justify-content: space-between;
-            box-shadow: 0 50px 100px rgba(0,0,0,0.6);
-            opacity: 0;
-            transform: translateY(100px) scale(0.95);
-            transition: all 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+            box-shadow: 0 40px 80px rgba(0,0,0,0.6);
+            opacity: 0; transform: translateY(100px) scale(0.95);
+            transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
         
         .visual-card.active { opacity: 1; transform: translateY(0) scale(1); z-index: 5; }
-        .visual-card i { font-size: 4rem; margin-bottom: 20px; }
+        .v-icon { font-size: 4rem; margin-bottom: 20px; }
 
         /* =========================================
-           BENTO GRID (Skills, Exp, Certs)
+           BENTO GRID SECTIONS
         ========================================= */
-        .bento-section {
-            padding: 100px 8%;
-            background: #08080a;
-            border-top: 1px solid var(--border);
-        }
-        
-        .section-header { font-size: 2rem; margin-bottom: 50px; color: #fff; }
+        .section-padding { padding: 100px 10%; border-top: 1px solid var(--border); }
+        .section-header { font-size: 2rem; margin-bottom: 40px; font-weight: 700; color: #fff; }
 
-        .bento-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-        }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .span-2 { grid-column: span 2; }
+        .span-3 { grid-column: span 3; }
 
         .card {
             background: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
+            border-radius: var(--radius);
             padding: 30px;
-            transition: 0.3s;
+            transition: transform 0.3s ease, background 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
-        .card:hover { border-color: rgba(255,255,255,0.2); background: var(--bg-card-hover); }
+        
+        /* Interactive Mouse Glow */
+        .card::before {
+            content: "";
+            position: absolute;
+            height: 100%; width: 100%;
+            left: 0; top: 0;
+            background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(255,255,255,0.06), transparent 40%);
+            opacity: 0; transition: opacity 0.5s; pointer-events: none;
+        }
+        .card:hover::before { opacity: 1; }
+        .card:hover { transform: translateY(-5px); border-color: rgba(255,255,255,0.2); }
 
-        .span-2 { grid-column: span 2; }
-        .span-3 { grid-column: span 3; }
-
-        .card-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
-        .card-title i { color: var(--accent-blue); }
-
+        .card-head { font-size: 1.1rem; font-weight: 600; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+        
         /* Experience List */
         .exp-item {
             padding-left: 20px; border-left: 2px solid var(--border); margin-bottom: 25px;
             position: relative;
         }
-        .exp-item::before {
-            content: ''; position: absolute; left: -5px; top: 6px;
-            width: 8px; height: 8px; background: var(--bg-card); border: 2px solid var(--text-secondary); border-radius: 50%;
+        .exp-item.active { border-color: var(--accent-green); }
+        .exp-item.active::after {
+            content:''; position: absolute; left: -5px; top: 0; width: 8px; height: 8px;
+            background: var(--accent-green); border-radius: 50%; box-shadow: 0 0 10px var(--accent-green);
         }
-        .exp-item.current::before { border-color: var(--accent-green); background: var(--accent-green); }
         
-        .role { color: #fff; font-weight: 600; font-size: 1rem; }
-        .company { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 8px; display: block; }
-        .bullets li { color: #aaa; font-size: 0.85rem; margin-bottom: 6px; list-style: disc; margin-left: 15px; }
+        .role { color: #fff; font-weight: 600; }
+        .company { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 6px; display: block; }
+        .desc li { color: #888; font-size: 0.85rem; list-style: disc; margin-left: 15px; margin-bottom: 4px; }
 
-        /* Skills Grid */
-        .skill-group { margin-bottom: 20px; }
-        .skill-label { font-size: 0.8rem; color: var(--text-tertiary); text-transform: uppercase; margin-bottom: 10px; font-weight: 700; }
-        .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-        .skill-tag { 
-            padding: 6px 12px; background: rgba(255,255,255,0.03); 
-            border: 1px solid var(--border); border-radius: 6px; 
-            font-size: 0.85rem; color: #ddd; transition: 0.2s;
+        /* Skills */
+        .skill-section { margin-bottom: 25px; }
+        .skill-title { font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; margin-bottom: 10px; font-weight: 700; }
+        .skill-flex { display: flex; flex-wrap: wrap; gap: 8px; }
+        .skill-pill {
+            padding: 8px 14px; background: rgba(255,255,255,0.03); border-radius: 8px;
+            font-size: 0.85rem; border: 1px solid var(--border); transition: 0.2s;
         }
-        .skill-tag:hover { background: rgba(255,255,255,0.1); color: #fff; }
+        .skill-pill:hover { background: #fff; color: #000; border-color: #fff; }
 
-        /* Certifications */
-        .cert-item {
+        /* Certs */
+        .cert-row {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.05);
         }
-        .cert-item:last-child { border-bottom: none; }
-        .cert-name { font-size: 0.95rem; font-weight: 500; }
-        .cert-meta { font-size: 0.8rem; color: var(--text-secondary); }
-        .cert-link { color: var(--accent-blue); font-size: 0.8rem; }
+        .cert-row:last-child { border-bottom: none; }
+        .cert-title { font-size: 0.95rem; font-weight: 500; }
+        .cert-date { font-size: 0.8rem; color: var(--text-secondary); }
 
         /* =========================================
            MOBILE
@@ -304,24 +254,19 @@
         @media (max-width: 1024px) {
             .sidebar {
                 width: 100%; height: auto; position: relative;
-                flex-direction: row; padding: 20px;
+                flex-direction: row; padding: 15px 20px;
                 border-bottom: 1px solid var(--border); border-right: none;
             }
-            .nav-menu { display: none; }
-            .social-links { display: none; } /* Simplified header */
-            
+            .nav-menu { display: none; } /* Use hamburger in future or simplify */
             .main { margin-left: 0; width: 100%; }
             .hero { padding: 60px 20px; height: auto; min-height: 80vh; }
-            
-            .sticky-container { position: relative; height: auto; flex-direction: column; background: var(--bg-body); padding: 40px 20px; }
+            .sticky-container { position: relative; height: auto; flex-direction: column; padding: 40px 20px; }
             .sticky-wrapper { height: auto; }
-            
-            .project-details { width: 100%; padding: 0; margin-bottom: 40px; }
+            .project-text { width: 100%; padding: 0; margin-bottom: 40px; }
             .project-visuals { width: 100%; display: block; height: auto; }
-            .visual-card { position: relative; width: 100%; height: auto; min-height: 300px; transform: none; opacity: 1; margin-bottom: 20px; }
-            
-            .bento-section { padding: 40px 20px; }
-            .bento-grid { grid-template-columns: 1fr; }
+            .visual-card { position: relative; width: 100%; margin-bottom: 20px; transform: none; opacity: 1; height: auto; min-height: 300px; }
+            .section-padding { padding: 60px 20px; }
+            .grid-3 { grid-template-columns: 1fr; }
             .span-2, .span-3 { grid-column: span 1; }
         }
     </style>
@@ -338,11 +283,11 @@
             <a href="#home" class="nav-item active"><i class="fas fa-home"></i> Home</a>
             <a href="#projects" class="nav-item"><i class="fas fa-layer-group"></i> Projects</a>
             <a href="#experience" class="nav-item"><i class="fas fa-briefcase"></i> Experience</a>
-            <a href="#certifications" class="nav-item"><i class="fas fa-certificate"></i> Certs</a>
             <a href="#skills" class="nav-item"><i class="fas fa-code"></i> Skills</a>
+            <a href="#certifications" class="nav-item"><i class="fas fa-certificate"></i> Awards</a>
         </div>
 
-        <div class="social-links">
+        <div class="socials">
             <a href="https://github.com/Aditya-Nagariya" target="_blank"><i class="fab fa-github"></i></a>
             <a href="https://linkedin.com/in/aditya-nagariya-veni-vidi-vici" target="_blank"><i class="fab fa-linkedin"></i></a>
             <a href="mailto:adityanagariyav@gmail.com"><i class="fas fa-envelope"></i></a>
@@ -352,181 +297,213 @@
     <main class="main">
         
         <section id="home" class="hero">
-            <span class="hero-tag">// AI ENGINEER & SECURITY ARCHITECT</span>
+            <span class="hero-tag">// AI & SECURITY ENGINEER</span>
             <h1>Intelligence,<br>Secured by Design.</h1>
-            <p>I merge <strong>Offensive Security</strong> (Ranked Top 20% on TryHackMe) with <strong>Generative AI</strong> to build robust, proprietary systems. Currently developing "PrepVault" at Bosc Tech Labs.</p>
-            <div class="cta-row">
+            <p>I merge <strong>Offensive Security</strong> (TryHackMe Top 20%) with <strong>Generative AI</strong> to build robust systems. Currently developing proprietary video engines at Bosc Tech Labs.</p>
+            <div class="btn-group">
                 <a href="#projects" class="btn primary">View Work</a>
-                <a href="https://github.com/Aditya-Nagariya" target="_blank" class="btn">GitHub Profile</a>
+                <a href="#experience" class="btn">Experience</a>
             </div>
         </section>
 
         <section id="projects" class="sticky-wrapper">
             <div class="sticky-container">
                 
-                <div class="project-details">
+                <div class="project-text">
                     <div class="p-label" id="p-label">Featured Project 01</div>
                     <div class="p-title" id="p-title" style="color: var(--accent-purple);">PrepVault</div>
                     <div class="p-desc" id="p-desc">
-                        A proprietary Generative AI engine competing with ElevenLabs. Features high-fidelity voice cloning and lip-sync technology for automated video synthesis.
+                        A proprietary Generative AI engine competing with ElevenLabs. Features high-fidelity voice cloning and lip-sync technology.
                     </div>
-                    <div class="tech-stack" id="p-stack">
-                        <span class="tech-tag">Generative AI</span>
-                        <span class="tech-tag">Wav2Lip</span>
-                        <span class="tech-tag">Python</span>
+                    <div class="p-tech" id="p-tech">
+                        <span class="tag">GenAI</span> <span class="tag">Wav2Lip</span> <span class="tag">Python</span>
                     </div>
                 </div>
 
                 <div class="project-visuals">
-                    
                     <div class="visual-card active" id="card-1" style="border-top: 4px solid var(--accent-purple);">
-                        <i class="fas fa-wand-magic-sparkles" style="color: var(--accent-purple);"></i>
-                        <h3>PrepVault</h3>
-                        <p style="color: #888; margin-top: 10px;">Proprietary GenAI Video Engine</p>
+                        <i class="fas fa-wand-magic-sparkles v-icon" style="color: var(--accent-purple);"></i>
+                        <div>
+                            <h3>PrepVault</h3>
+                            <p style="color: #888; margin-top: 10px;">Proprietary GenAI Video Engine</p>
+                        </div>
                     </div>
-
                     <div class="visual-card" id="card-2" style="border-top: 4px solid var(--accent-blue);">
-                        <i class="fas fa-baseball-bat-ball" style="color: var(--accent-blue);"></i>
-                        <h3>CricVision</h3>
-                        <p style="color: #888; margin-top: 10px;">Live Play Store App using Pose Estimation.</p>
+                        <i class="fas fa-baseball-bat-ball v-icon" style="color: var(--accent-blue);"></i>
+                        <div>
+                            <h3>CricVision</h3>
+                            <p style="color: #888; margin-top: 10px;">Live App with Pose Estimation</p>
+                        </div>
                     </div>
-
                     <div class="visual-card" id="card-3" style="border-top: 4px solid var(--accent-green);">
-                        <i class="fas fa-shield-halved" style="color: var(--accent-green);"></i>
-                        <h3>SteganoSafe</h3>
-                        <p style="color: #888; margin-top: 10px;">AES-256 Encrypted Steganography Tool.</p>
+                        <i class="fas fa-shield-halved v-icon" style="color: var(--accent-green);"></i>
+                        <div>
+                            <h3>SteganoSafe</h3>
+                            <p style="color: #888; margin-top: 10px;">AES-256 Encrypted Steganography</p>
+                        </div>
                     </div>
-
                 </div>
+
             </div>
         </section>
 
-        <section id="experience" class="bento-section">
-            <div class="section-header">Career Data</div>
-            
-            <div class="bento-grid">
-                
-                <div class="card span-2">
-                    <div class="card-title"><i class="fas fa-briefcase"></i> Experience</div>
+        <section id="experience" class="section-padding">
+            <div class="section-header">Experience</div>
+            <div class="grid-3">
+                <div class="card span-2 gsap-card">
+                    <div class="card-head"><i class="fas fa-briefcase"></i> Professional Timeline</div>
                     
-                    <div class="exp-item current">
+                    <div class="exp-item active">
                         <div class="role">AI/ML Intern (Computer Vision)</div>
-                        <span class="company">Bosc Tech Labs • Nov 2025 – Present</span>
-                        <ul class="bullets">
+                        <span class="company">Bosc Tech Labs • Nov 2025 - Present</span>
+                        <ul class="desc">
                             <li>Developing "PrepVault" GenAI video engine.</li>
-                            <li>Engineered "CricVision" sports analytics app using Pose Estimation.</li>
+                            <li>Engineered "CricVision" sports analytics app.</li>
                             <li>Optimizing CNN architectures for edge deployment.</li>
                         </ul>
                     </div>
 
                     <div class="exp-item">
                         <div class="role">Desktop Support Engineer</div>
-                        <span class="company">Hyperlink IT System • Jul 2025 – Nov 2025</span>
-                        <ul class="bullets">
-                            <li>Maintained system security and hardware optimization.</li>
+                        <span class="company">Hyperlink IT System • Jul 2025 - Nov 2025</span>
+                        <ul class="desc">
+                            <li>Maintained system security and optimizations.</li>
                         </ul>
                     </div>
 
                     <div class="exp-item">
                         <div class="role">Cybersecurity Manager (Intern)</div>
-                        <span class="company">PurpleRain TechSafe • Feb 2025 – Jun 2025</span>
-                        <ul class="bullets">
-                            <li>Conducted VAPT on web apps using Burp Suite & SQLMap.</li>
+                        <span class="company">PurpleRain TechSafe • Feb 2025 - Jun 2025</span>
+                        <ul class="desc">
+                            <li>Conducted VAPT using Burp Suite & SQLMap.</li>
                         </ul>
                     </div>
                 </div>
 
-                <div class="card">
-                    <div class="card-title"><i class="fas fa-trophy"></i> Achievements</div>
-                    
-                    <div style="margin-bottom: 25px;">
+                <div class="card gsap-card">
+                    <div class="card-head"><i class="fas fa-trophy"></i> Stats</div>
+                    <div style="margin-bottom: 20px;">
                         <div style="font-size: 2.5rem; font-weight: 700; color: var(--accent-orange);">1448</div>
                         <div style="font-size: 0.8rem; color: #888;">Rank out of 143,086 (Advent of Cyber)</div>
                     </div>
-
-                    <div style="margin-bottom: 25px;">
-                        <div style="font-size: 2.5rem; font-weight: 700; color: #fff;">Top 20%</div>
-                        <div style="font-size: 0.8rem; color: #888;">Global Rank on TryHackMe</div>
-                    </div>
-
                     <iframe src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=2619385" style='border:none; width:100%; height:150px;'></iframe>
                 </div>
-
-                <div class="card span-3">
-                    <div class="card-title"><i class="fas fa-code"></i> Technical Stack</div>
-                    
-                    <div class="skill-group">
-                        <div class="skill-label">Security Tools</div>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Burp Suite</span> <span class="skill-tag">Nmap</span>
-                            <span class="skill-tag">Wireshark</span> <span class="skill-tag">SQLMap</span>
-                            <span class="skill-tag">Metasploit</span> <span class="skill-tag">OWASP ZAP</span>
-                            <span class="skill-tag">Kali Linux</span>
-                        </div>
-                    </div>
-
-                    <div class="skill-group">
-                        <div class="skill-label">Development & AI</div>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Python</span> <span class="skill-tag">OpenCV</span>
-                            <span class="skill-tag">PyTorch</span> <span class="skill-tag">YOLOv8</span>
-                            <span class="skill-tag">Bash Scripting</span> <span class="skill-tag">Docker</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card span-2" id="certifications">
-                    <div class="card-title"><i class="fas fa-certificate"></i> Certifications</div>
-                    
-                    <div class="cert-item">
-                        <div>
-                            <div class="cert-name">Certified Network Security Practitioner (CNSP)</div>
-                            <div class="cert-meta">Passed with Merit • Jan 2025</div>
-                        </div>
-                        <a href="https://candidate.speedexam.net/certificate.aspx?SSTATE=am4131EniU8ntjp4bO5mXRTcxhSYYbHvMp/7NNjZI0Fig3VVmXBPo7tnybqRym5rLAh5m8/L7mfRubFOmS+1dj9ISarRzbIhMckYLtLwBEs=" target="_blank" class="cert-link">View</a>
-                    </div>
-
-                    <div class="cert-item">
-                        <div>
-                            <div class="cert-name">IBM Cyber-Security Fundamentals</div>
-                            <div class="cert-meta">Top 10% Rank • Oct 2023</div>
-                        </div>
-                        <a href="#" class="cert-link">View</a>
-                    </div>
-
-                    <div class="cert-item">
-                        <div>
-                            <div class="cert-name">Prompt Engineering Certification</div>
-                            <div class="cert-meta">Coursera (100%) • Dec 2023</div>
-                        </div>
-                        <a href="#" class="cert-link">View</a>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-title"><i class="fas fa-graduation-cap"></i> Education</div>
-                    <div style="font-weight: 600; font-size: 1rem;">B.Tech in CS & Engineering</div>
-                    <div style="color: var(--accent-blue); font-size: 0.9rem; margin-bottom: 10px;">Darshan University</div>
-                    <ul class="bullets">
-                        <li>2021 - 2025</li>
-                        <li>CGPA: 7.10/10</li>
-                        <li>Specialization: Network Security</li>
-                    </ul>
-                </div>
-
             </div>
         </section>
 
-        <footer style="padding: 60px 8%; background: #050507; text-align: center; color: var(--text-secondary); font-size: 0.9rem;">
-            <p>&copy; 2026 Aditya Nagariya. Built with Zero Hallucinations.</p>
+        <section id="skills" class="section-padding">
+            <div class="section-header">Technical Arsenal</div>
+            <div class="grid-3">
+                <div class="card span-3 gsap-card">
+                    <div class="grid-3">
+                        <div class="skill-section">
+                            <div class="skill-title">AI & Development</div>
+                            <div class="skill-flex">
+                                <span class="skill-pill">Python</span>
+                                <span class="skill-pill">OpenCV</span>
+                                <span class="skill-pill">PyTorch</span>
+                                <span class="skill-pill">YOLOv8</span>
+                                <span class="skill-pill">Wav2Lip</span>
+                                <span class="skill-pill">Docker</span>
+                            </div>
+                        </div>
+                        <div class="skill-section">
+                            <div class="skill-title">Security</div>
+                            <div class="skill-flex">
+                                <span class="skill-pill">Burp Suite</span>
+                                <span class="skill-pill">Nmap</span>
+                                <span class="skill-pill">Wireshark</span>
+                                <span class="skill-pill">SQLMap</span>
+                                <span class="skill-pill">Kali Linux</span>
+                                <span class="skill-pill">Metasploit</span>
+                            </div>
+                        </div>
+                        <div class="skill-section">
+                            <div class="skill-title">Core</div>
+                            <div class="skill-flex">
+                                <span class="skill-pill">Linux</span>
+                                <span class="skill-pill">Bash</span>
+                                <span class="skill-pill">Networking</span>
+                                <span class="skill-pill">Git</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="certifications" class="section-padding">
+            <div class="section-header">Certifications</div>
+            <div class="grid-3">
+                <div class="card span-2 gsap-card">
+                    <div class="cert-row">
+                        <div>
+                            <div class="cert-title">Certified Network Security Practitioner (CNSP)</div>
+                            <div class="cert-date">Passed with Merit • Jan 2025</div>
+                        </div>
+                        <i class="fas fa-check-circle" style="color: var(--accent-green);"></i>
+                    </div>
+                    <div class="cert-row">
+                        <div>
+                            <div class="cert-title">IBM Cybersecurity Fundamentals</div>
+                            <div class="cert-date">Top 10% • Oct 2023</div>
+                        </div>
+                        <i class="fas fa-check-circle" style="color: var(--accent-blue);"></i>
+                    </div>
+                    <div class="cert-row">
+                        <div>
+                            <div class="cert-title">Prompt Engineering (Coursera)</div>
+                            <div class="cert-date">100% Score • Dec 2023</div>
+                        </div>
+                        <i class="fas fa-check-circle" style="color: var(--accent-purple);"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer style="padding: 50px; text-align: center; color: #666; font-size: 0.9rem;">
+            © 2026 Aditya Nagariya. Built with Zero Hallucinations.
         </footer>
 
     </main>
 
     <script>
-        // ROBUST SCROLL INTERACTION (APPLE STYLE)
-        // Uses purely scroll position to determine which card to show
-        
+        // 1. REGISTER GSAP
+        gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+        // 2. HERO ANIMATIONS
+        const tl = gsap.timeline();
+        tl.to(".hero-tag", { opacity: 1, duration: 0.8, y: 0 })
+          .to(".hero h1", { opacity: 1, duration: 0.8, y: 0 }, "-=0.6")
+          .to(".hero p", { opacity: 1, duration: 0.8, y: 0 }, "-=0.6")
+          .to(".btn-group", { opacity: 1, duration: 0.8, y: 0 }, "-=0.6");
+
+        // 3. SCROLL-TRIGGERED CARDS (Bento Grid)
+        gsap.utils.toArray('.gsap-card').forEach(card => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top 85%",
+                },
+                y: 50,
+                opacity: 0,
+                duration: 0.8,
+                ease: "power2.out"
+            });
+        });
+
+        // 4. MOUSE GLOW EFFECT (Interactive)
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+
+        // 5. STICKY PROJECT SCROLL LOGIC (Refined)
         const stickySection = document.querySelector('.sticky-wrapper');
         const cards = [
             document.getElementById('card-1'),
@@ -534,91 +511,62 @@
             document.getElementById('card-3')
         ];
         
-        // Data for text swapping
         const projectData = [
-            { 
-                title: "PrepVault", 
-                desc: "A proprietary Generative AI engine competing with ElevenLabs. Features high-fidelity voice cloning and lip-sync technology.", 
-                color: "#bf5af2",
-                stack: ["Generative AI", "Wav2Lip", "Python"]
-            },
-            { 
-                title: "CricVision", 
-                desc: "Real-time sports analytics mobile app. Uses Computer Vision (OpenCV/Pose Estimation) to analyze player mechanics.", 
-                color: "#2997ff",
-                stack: ["Computer Vision", "Android", "AI"]
-            },
-            { 
-                title: "SteganoSafe", 
-                desc: "Secure file-hiding tool using AES-256 encryption. Demonstrates the intersection of data security and software engineering.", 
-                color: "#30d158",
-                stack: ["Cybersecurity", "Cryptography", "Python"]
-            }
+            { title: "PrepVault", desc: "Proprietary GenAI engine. High-fidelity voice cloning & lip-sync.", color: "#bf5af2", stack: ["GenAI", "Wav2Lip", "Python"] },
+            { title: "CricVision", desc: "Live Play Store App. Real-time sports analytics via Pose Estimation.", color: "#0a84ff", stack: ["Computer Vision", "Android", "AI"] },
+            { title: "SteganoSafe", desc: "Cybersecurity tool. AES-256 Encrypted Steganography.", color: "#30d158", stack: ["Security", "Cryptography", "Python"] }
         ];
-        
-        // DOM Elements to update
+
+        // DOM Elements
         const domTitle = document.getElementById('p-title');
         const domDesc = document.getElementById('p-desc');
-        const domStack = document.getElementById('p-stack');
+        const domTech = document.getElementById('p-tech');
 
         window.addEventListener('scroll', () => {
-            if (window.innerWidth <= 1024) return; // Disable on mobile
+            if(window.innerWidth < 1024) return; 
 
             const sectionTop = stickySection.offsetTop;
             const sectionHeight = stickySection.offsetHeight;
             const scrollY = window.scrollY;
             
-            // Calculate progress (0.0 to 1.0) through the sticky section
             let progress = (scrollY - sectionTop) / (sectionHeight - window.innerHeight);
+            if (progress < 0) progress = 0; if (progress > 1) progress = 1;
             
-            // Bounds check
-            if (progress < 0) progress = 0;
-            if (progress > 1) progress = 1;
+            let index = 0;
+            if (progress > 0.33) index = 1;
+            if (progress > 0.66) index = 2;
             
-            // Determine active index based on progress segments
-            let activeIndex = 0;
-            if (progress > 0.33) activeIndex = 1;
-            if (progress > 0.66) activeIndex = 2;
-            
-            // Update Visuals
-            cards.forEach((card, index) => {
-                if (index === activeIndex) {
-                    card.classList.add('active');
-                } else {
-                    card.classList.remove('active');
-                }
+            // Swap Cards
+            cards.forEach((c, i) => {
+                if(i === index) c.classList.add('active');
+                else c.classList.remove('active');
             });
-            
-            // Update Text (Only if changed to prevent flicker)
-            if (domTitle.innerText !== projectData[activeIndex].title) {
-                domTitle.innerText = projectData[activeIndex].title;
-                domTitle.style.color = projectData[activeIndex].color;
-                domDesc.innerText = projectData[activeIndex].desc;
-                
-                // Update Tags
-                domStack.innerHTML = projectData[activeIndex].stack
-                    .map(tech => `<span class="tech-tag">${tech}</span>`)
-                    .join('');
+
+            // Swap Text
+            if(domTitle.innerText !== projectData[index].title) {
+                domTitle.innerText = projectData[index].title;
+                domTitle.style.color = projectData[index].color;
+                domDesc.innerText = projectData[index].desc;
+                domTech.innerHTML = projectData[index].stack.map(t => `<span class="tag">${t}</span>`).join('');
             }
         });
-        
-        // Highlight Sidebar on Scroll
-        const sections = document.querySelectorAll('section');
-        const navItems = document.querySelectorAll('.nav-item');
 
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
+        // 6. SIDEBAR ACTIVE STATE
+        const sections = document.querySelectorAll("section");
+        const navLi = document.querySelectorAll(".nav-item");
+
+        window.addEventListener("scroll", () => {
+            let current = "";
+            sections.forEach((section) => {
                 const sectionTop = section.offsetTop;
                 if (pageYOffset >= sectionTop - 200) {
-                    current = section.getAttribute('id');
+                    current = section.getAttribute("id");
                 }
             });
-            
-            navItems.forEach(li => {
-                li.classList.remove('active');
-                if (li.getAttribute('href').includes(current)) {
-                    li.classList.add('active');
+            navLi.forEach((li) => {
+                li.classList.remove("active");
+                if (li.getAttribute("href").includes(current)) {
+                    li.classList.add("active");
                 }
             });
         });
