@@ -13,31 +13,36 @@
 
     <style>
         /* =========================================
-           APPLE x CODEWIKI SYSTEM VARIABLES
+           TITANIUM DESIGN SYSTEM
         ========================================= */
         :root {
-            --bg-body: #000000;
-            --bg-glass: rgba(28, 28, 30, 0.6);
-            --bg-card: #1c1c1e;
-            --bg-card-hover: #2c2c2e;
+            /* Backgrounds */
+            --bg-body: #050507;
+            --bg-sidebar: rgba(10, 10, 12, 0.95);
+            --bg-card: #141416;
+            --bg-card-hover: #1e1e21;
             
-            --accent-primary: #0a84ff; /* Apple Blue */
-            --accent-purple: #bf5af2; /* Apple Purple */
-            --accent-cyan: #64d2ff;   /* Apple Cyan */
+            /* Accents (Neon/Apple Hybrid) */
+            --accent-blue: #2997ff; 
+            --accent-purple: #bf5af2;
+            --accent-green: #30d158;
+            --accent-orange: #ff9f0a;
             
-            --text-primary: #ffffff;
-            --text-secondary: #86868b; /* Apple Gray */
-            
+            /* Text */
+            --text-primary: #f5f5f7;
+            --text-secondary: #86868b;
+            --text-tertiary: #56565c;
+
+            /* Borders */
             --border: rgba(255, 255, 255, 0.1);
-            --radius-lg: 24px;
-            --radius-md: 12px;
-            --radius-sm: 6px;
+            --radius-lg: 18px;
+            --radius-sm: 8px;
             
-            --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-main: 'Inter', system-ui, sans-serif;
             --font-mono: 'JetBrains Mono', monospace;
         }
 
-        /* RESET & BASE */
+        /* RESET */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         html { scroll-behavior: smooth; }
@@ -46,25 +51,25 @@
             background-color: var(--bg-body);
             color: var(--text-primary);
             font-family: var(--font-main);
+            line-height: 1.6;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
-            line-height: 1.5;
         }
 
         a { text-decoration: none; color: inherit; transition: 0.2s; }
-        
+        ul { list-style: none; }
+
         /* =========================================
-           NAVIGATION (CodeWiki Style Sidebar)
+           SIDEBAR NAVIGATION (Fixed Left)
         ========================================= */
         .sidebar {
             position: fixed;
             top: 0; left: 0;
-            width: 280px;
+            width: 260px;
             height: 100vh;
-            background: rgba(0,0,0,0.8);
-            backdrop-filter: blur(20px);
+            background: var(--bg-sidebar);
             border-right: 1px solid var(--border);
-            padding: 40px 30px;
+            padding: 40px 24px;
             z-index: 1000;
             display: flex;
             flex-direction: column;
@@ -72,25 +77,21 @@
         }
 
         .brand {
-            font-size: 1.2rem;
+            font-size: 0.9rem;
             font-weight: 700;
-            letter-spacing: -0.02em;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            letter-spacing: 1px;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            display: flex; align-items: center; gap: 10px;
         }
         
-        .brand-dot {
-            width: 8px; height: 8px; background: var(--accent-primary); border-radius: 50%;
-            box-shadow: 0 0 10px var(--accent-primary);
-        }
+        .status-dot { width: 8px; height: 8px; background: var(--accent-green); border-radius: 50%; box-shadow: 0 0 8px var(--accent-green); }
 
-        .nav-links {
-            display: flex; flex-direction: column; gap: 8px; margin-top: -100px;
-        }
-
+        .nav-menu { display: flex; flex-direction: column; gap: 6px; }
+        
         .nav-item {
-            padding: 10px 16px;
+            padding: 10px 12px;
             border-radius: var(--radius-sm);
             color: var(--text-secondary);
             font-size: 0.9rem;
@@ -100,58 +101,51 @@
         }
 
         .nav-item:hover, .nav-item.active {
-            background: var(--bg-card);
+            background: rgba(255,255,255,0.05);
             color: var(--text-primary);
         }
         
-        .nav-item.active { border-left: 2px solid var(--accent-primary); }
+        .nav-item.active { border-left: 3px solid var(--accent-blue); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; }
+        
+        .nav-item i { width: 20px; text-align: center; }
 
-        .socials { display: flex; gap: 16px; }
-        .socials a { color: var(--text-secondary); font-size: 1.2rem; }
-        .socials a:hover { color: var(--text-primary); transform: translateY(-2px); }
+        .social-links { display: flex; gap: 15px; margin-top: auto; }
+        .social-links a { color: var(--text-secondary); font-size: 1.1rem; }
+        .social-links a:hover { color: var(--text-primary); transform: translateY(-2px); }
 
         /* =========================================
            MAIN CONTENT AREA
         ========================================= */
-        .main-content {
-            margin-left: 280px;
+        .main {
+            margin-left: 260px;
             padding: 0;
-            width: calc(100% - 280px);
+            width: calc(100% - 260px);
             position: relative;
         }
 
         /* =========================================
-           HERO SECTION (Apple Product Header)
+           HERO SECTION
         ========================================= */
         .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 0 80px;
-            position: relative;
-            background: radial-gradient(circle at 80% 20%, rgba(10, 132, 255, 0.15), transparent 40%);
+            height: 90vh;
+            display: flex; flex-direction: column; justify-content: center;
+            padding: 0 8%;
+            background: radial-gradient(circle at 80% 20%, rgba(41, 151, 255, 0.08), transparent 40%);
+            border-bottom: 1px solid var(--border);
         }
 
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            padding: 6px 16px;
-            background: rgba(10, 132, 255, 0.1);
-            border: 1px solid rgba(10, 132, 255, 0.3);
-            border-radius: 50px;
-            color: var(--accent-primary);
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 24px;
-            width: fit-content;
+        .hero-tag {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-blue);
+            margin-bottom: 20px;
+            display: block;
         }
 
         .hero h1 {
-            font-size: clamp(3.5rem, 6vw, 6rem);
-            font-weight: 700;
-            line-height: 1.05;
-            letter-spacing: -0.03em;
+            font-size: clamp(3rem, 5vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.1;
             margin-bottom: 24px;
             background: linear-gradient(180deg, #fff 0%, #a1a1aa 100%);
             -webkit-background-clip: text;
@@ -159,27 +153,31 @@
         }
 
         .hero p {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             color: var(--text-secondary);
-            max-width: 700px;
-            line-height: 1.4;
+            max-width: 650px;
+            margin-bottom: 40px;
         }
-
-        .scroll-indicator {
-            position: absolute; bottom: 40px; left: 80px;
-            color: var(--text-secondary); font-size: 0.9rem;
-            animation: bounce 2s infinite;
+        
+        .cta-row { display: flex; gap: 16px; }
+        
+        .btn {
+            padding: 12px 24px;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: 1px solid var(--border);
+            background: rgba(255,255,255,0.05);
         }
-
-        @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(5px); } }
+        .btn.primary { background: var(--text-primary); color: #000; border-color: #fff; }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
 
         /* =========================================
-           STICKY SCROLL PROJECT SECTION
-           (The "Apple Interaction" Request)
+           STICKY "APPLE STYLE" PROJECTS
         ========================================= */
         .sticky-wrapper {
             position: relative;
-            height: 300vh; /* creates scroll space */
+            height: 350vh; /* Scroll space */
         }
 
         .sticky-container {
@@ -189,137 +187,142 @@
             display: flex;
             align-items: center;
             overflow: hidden;
-            background: #000;
+            background: var(--bg-body);
         }
 
-        /* Left side: Static Text */
-        .project-text-side {
+        .project-details {
             width: 40%;
-            padding-left: 80px;
+            padding-left: 8%;
             z-index: 2;
         }
-
-        .sticky-title {
-            font-size: 0.9rem; color: var(--accent-purple); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px;
-        }
-        .sticky-head { font-size: 3rem; font-weight: 700; margin-bottom: 20px; line-height: 1.1; }
-        .sticky-desc { color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 30px; }
         
-        .project-stat-row { display: flex; gap: 30px; margin-top: 30px; }
-        .p-stat h4 { font-size: 1.5rem; color: #fff; }
-        .p-stat span { font-size: 0.8rem; color: var(--text-secondary); }
+        .p-label { color: var(--accent-purple); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem; margin-bottom: 10px; }
+        .p-title { font-size: 3rem; font-weight: 800; margin-bottom: 20px; line-height: 1.1; }
+        .p-desc { color: var(--text-secondary); font-size: 1.1rem; line-height: 1.6; margin-bottom: 30px; }
+        
+        .tech-stack { display: flex; gap: 10px; flex-wrap: wrap; }
+        .tech-tag { 
+            padding: 6px 12px; background: rgba(255,255,255,0.08); 
+            border-radius: 4px; font-size: 0.8rem; color: #ccc; font-family: var(--font-mono);
+        }
 
-        /* Right side: Dynamic Cards */
-        .project-visual-side {
+        .project-visuals {
             width: 60%;
             height: 100%;
             position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: flex; align-items: center; justify-content: center;
         }
-
+        
         .visual-card {
             position: absolute;
-            width: 500px;
-            height: 350px;
-            background: #151516;
+            width: 550px; height: 380px;
+            background: #101012;
             border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 30px;
+            border-radius: 24px;
+            padding: 40px;
             display: flex; flex-direction: column; justify-content: space-between;
-            box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+            box-shadow: 0 50px 100px rgba(0,0,0,0.6);
             opacity: 0;
-            transform: translateY(100px) scale(0.9);
-            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateY(100px) scale(0.95);
+            transition: all 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
-
-        .visual-card.active { opacity: 1; transform: translateY(0) scale(1); z-index: 2; }
         
-        .visual-icon { font-size: 3rem; margin-bottom: 20px; }
-        .v-tag { 
-            background: rgba(255,255,255,0.1); padding: 5px 12px; border-radius: 100px; 
-            font-size: 0.75rem; width: fit-content; font-family: var(--font-mono);
-        }
+        .visual-card.active { opacity: 1; transform: translateY(0) scale(1); z-index: 5; }
+        .visual-card i { font-size: 4rem; margin-bottom: 20px; }
 
         /* =========================================
-           BENTO GRID (Skills & Experience)
+           BENTO GRID (Skills, Exp, Certs)
         ========================================= */
         .bento-section {
-            padding: 100px 80px;
-            background: #050505;
+            padding: 100px 8%;
+            background: #08080a;
+            border-top: 1px solid var(--border);
         }
-
-        .section-headline {
-            font-size: 2.5rem; margin-bottom: 40px; font-weight: 600;
-        }
+        
+        .section-header { font-size: 2rem; margin-bottom: 50px; color: #fff; }
 
         .bento-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-auto-rows: 240px;
-            gap: 20px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
         }
 
-        .bento-card {
+        .card {
             background: var(--bg-card);
+            border: 1px solid var(--border);
             border-radius: var(--radius-lg);
             padding: 30px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            border: 1px solid rgba(255,255,255,0.05);
             transition: 0.3s;
-            position: relative;
-            overflow: hidden;
         }
+        .card:hover { border-color: rgba(255,255,255,0.2); background: var(--bg-card-hover); }
 
-        .bento-card:hover {
-            background: var(--bg-card-hover);
-            transform: scale(1.01);
-        }
-
-        /* Span Classes */
         .span-2 { grid-column: span 2; }
-        .span-2-row { grid-row: span 2; }
-        .span-4 { grid-column: span 4; }
+        .span-3 { grid-column: span 3; }
 
-        .b-title { font-size: 1.5rem; font-weight: 600; margin-bottom: 10px; }
-        .b-sub { color: var(--text-secondary); font-size: 0.95rem; }
+        .card-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+        .card-title i { color: var(--accent-blue); }
+
+        /* Experience List */
+        .exp-item {
+            padding-left: 20px; border-left: 2px solid var(--border); margin-bottom: 25px;
+            position: relative;
+        }
+        .exp-item::before {
+            content: ''; position: absolute; left: -5px; top: 6px;
+            width: 8px; height: 8px; background: var(--bg-card); border: 2px solid var(--text-secondary); border-radius: 50%;
+        }
+        .exp-item.current::before { border-color: var(--accent-green); background: var(--accent-green); }
         
-        /* Timeline inside Bento */
-        .timeline-item {
-            padding-left: 20px; border-left: 2px solid var(--border); margin-bottom: 20px;
-        }
-        .timeline-item:last-child { margin-bottom: 0; }
-        .t-role { color: #fff; font-weight: 600; }
-        .t-company { color: var(--accent-primary); font-size: 0.9rem; }
-        .t-date { color: var(--text-secondary); font-size: 0.8rem; }
+        .role { color: #fff; font-weight: 600; font-size: 1rem; }
+        .company { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 8px; display: block; }
+        .bullets li { color: #aaa; font-size: 0.85rem; margin-bottom: 6px; list-style: disc; margin-left: 15px; }
 
-        /* Skill Tags */
-        .skill-cloud { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
-        .skill-pill {
-            padding: 6px 14px; background: rgba(255,255,255,0.05);
-            border-radius: 6px; font-size: 0.85rem; color: #ccc;
-            border: 1px solid transparent; transition: 0.2s;
+        /* Skills Grid */
+        .skill-group { margin-bottom: 20px; }
+        .skill-label { font-size: 0.8rem; color: var(--text-tertiary); text-transform: uppercase; margin-bottom: 10px; font-weight: 700; }
+        .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+        .skill-tag { 
+            padding: 6px 12px; background: rgba(255,255,255,0.03); 
+            border: 1px solid var(--border); border-radius: 6px; 
+            font-size: 0.85rem; color: #ddd; transition: 0.2s;
         }
-        .skill-pill:hover { border-color: var(--accent-cyan); color: #fff; }
+        .skill-tag:hover { background: rgba(255,255,255,0.1); color: #fff; }
+
+        /* Certifications */
+        .cert-item {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .cert-item:last-child { border-bottom: none; }
+        .cert-name { font-size: 0.95rem; font-weight: 500; }
+        .cert-meta { font-size: 0.8rem; color: var(--text-secondary); }
+        .cert-link { color: var(--accent-blue); font-size: 0.8rem; }
 
         /* =========================================
-           MOBILE RESPONSIVENESS
+           MOBILE
         ========================================= */
         @media (max-width: 1024px) {
-            .sidebar { width: 100%; height: auto; position: relative; flex-direction: row; padding: 20px; border-bottom: 1px solid var(--border); }
-            .nav-links { display: none; } /* Simplified for mobile */
-            .main-content { margin-left: 0; width: 100%; }
+            .sidebar {
+                width: 100%; height: auto; position: relative;
+                flex-direction: row; padding: 20px;
+                border-bottom: 1px solid var(--border); border-right: none;
+            }
+            .nav-menu { display: none; }
+            .social-links { display: none; } /* Simplified header */
+            
+            .main { margin-left: 0; width: 100%; }
             .hero { padding: 60px 20px; height: auto; min-height: 80vh; }
-            .sticky-container { position: relative; height: auto; flex-direction: column; padding: 40px 20px; }
-            .project-text-side { width: 100%; padding: 0; margin-bottom: 40px; }
-            .project-visual-side { width: 100%; height: auto; display: block; }
-            .visual-card { position: relative; width: 100%; margin-bottom: 20px; transform: none; opacity: 1; height: auto; min-height: 300px; }
+            
+            .sticky-container { position: relative; height: auto; flex-direction: column; background: var(--bg-body); padding: 40px 20px; }
+            .sticky-wrapper { height: auto; }
+            
+            .project-details { width: 100%; padding: 0; margin-bottom: 40px; }
+            .project-visuals { width: 100%; display: block; height: auto; }
+            .visual-card { position: relative; width: 100%; height: auto; min-height: 300px; transform: none; opacity: 1; margin-bottom: 20px; }
+            
             .bento-section { padding: 40px 20px; }
-            .bento-grid { grid-template-columns: 1fr; grid-auto-rows: auto; }
-            .span-2, .span-4 { grid-column: span 1; }
+            .bento-grid { grid-template-columns: 1fr; }
+            .span-2, .span-3 { grid-column: span 1; }
         }
     </style>
 </head>
@@ -327,74 +330,71 @@
 
     <nav class="sidebar">
         <div class="brand">
-            <div class="brand-dot"></div>
+            <div class="status-dot"></div>
             ADITYA NAGARIYA
         </div>
         
-        <div class="nav-links">
-            <a href="#home" class="nav-item active"><i class="fas fa-home"></i> Overview</a>
+        <div class="nav-menu">
+            <a href="#home" class="nav-item active"><i class="fas fa-home"></i> Home</a>
             <a href="#projects" class="nav-item"><i class="fas fa-layer-group"></i> Projects</a>
             <a href="#experience" class="nav-item"><i class="fas fa-briefcase"></i> Experience</a>
-            <a href="#skills" class="nav-item"><i class="fas fa-code"></i> Stack</a>
+            <a href="#certifications" class="nav-item"><i class="fas fa-certificate"></i> Certs</a>
+            <a href="#skills" class="nav-item"><i class="fas fa-code"></i> Skills</a>
         </div>
 
-        <div class="socials">
+        <div class="social-links">
             <a href="https://github.com/Aditya-Nagariya" target="_blank"><i class="fab fa-github"></i></a>
             <a href="https://linkedin.com/in/aditya-nagariya-veni-vidi-vici" target="_blank"><i class="fab fa-linkedin"></i></a>
             <a href="mailto:adityanagariyav@gmail.com"><i class="fas fa-envelope"></i></a>
         </div>
     </nav>
 
-    <div class="main-content">
+    <main class="main">
         
         <section id="home" class="hero">
-            <div class="hero-badge">Available for Hire</div>
-            <h1>Architecting the <br>Future of AI.</h1>
-            <p>I am an AI/ML Engineer and Security Specialist building proprietary Generative AI engines and real-time computer vision systems.</p>
-            <div class="scroll-indicator">Scroll to Explore ↓</div>
+            <span class="hero-tag">// AI ENGINEER & SECURITY ARCHITECT</span>
+            <h1>Intelligence,<br>Secured by Design.</h1>
+            <p>I merge <strong>Offensive Security</strong> (Ranked Top 20% on TryHackMe) with <strong>Generative AI</strong> to build robust, proprietary systems. Currently developing "PrepVault" at Bosc Tech Labs.</p>
+            <div class="cta-row">
+                <a href="#projects" class="btn primary">View Work</a>
+                <a href="https://github.com/Aditya-Nagariya" target="_blank" class="btn">GitHub Profile</a>
+            </div>
         </section>
 
         <section id="projects" class="sticky-wrapper">
             <div class="sticky-container">
                 
-                <div class="project-text-side">
-                    <div id="text-1" class="text-group">
-                        <div class="sticky-title">Featured Project 01</div>
-                        <h2 class="sticky-head" style="color: var(--accent-purple);">PrepVault</h2>
-                        <p class="sticky-desc">A proprietary Generative AI engine challenging industry leaders like HeyGen. Features high-fidelity lip-syncing and voice cloning technology.</p>
-                        <div class="project-stat-row">
-                            <div class="p-stat"><h4>GenAI</h4><span>Core Tech</span></div>
-                            <div class="p-stat"><h4>Wav2Lip</h4><span>Model</span></div>
-                        </div>
+                <div class="project-details">
+                    <div class="p-label" id="p-label">Featured Project 01</div>
+                    <div class="p-title" id="p-title" style="color: var(--accent-purple);">PrepVault</div>
+                    <div class="p-desc" id="p-desc">
+                        A proprietary Generative AI engine competing with ElevenLabs. Features high-fidelity voice cloning and lip-sync technology for automated video synthesis.
+                    </div>
+                    <div class="tech-stack" id="p-stack">
+                        <span class="tech-tag">Generative AI</span>
+                        <span class="tech-tag">Wav2Lip</span>
+                        <span class="tech-tag">Python</span>
                     </div>
                 </div>
 
-                <div class="project-visual-side">
+                <div class="project-visuals">
                     
                     <div class="visual-card active" id="card-1" style="border-top: 4px solid var(--accent-purple);">
-                        <i class="fas fa-wand-magic-sparkles visual-icon" style="color: var(--accent-purple);"></i>
-                        <div>
-                            <h3 style="font-size: 2rem; margin-bottom: 10px;">PrepVault</h3>
-                            <div class="v-tag">Proprietary Technology</div>
-                        </div>
+                        <i class="fas fa-wand-magic-sparkles" style="color: var(--accent-purple);"></i>
+                        <h3>PrepVault</h3>
+                        <p style="color: #888; margin-top: 10px;">Proprietary GenAI Video Engine</p>
                     </div>
 
-                    <div class="visual-card" id="card-2" style="border-top: 4px solid var(--accent-primary);">
-                        <i class="fas fa-baseball-bat-ball visual-icon" style="color: var(--accent-primary);"></i>
-                        <div>
-                            <h3 style="font-size: 2rem; margin-bottom: 10px;">CricVision</h3>
-                            <p style="color: #888; margin-bottom: 15px;">Live Play Store App using Pose Estimation.</p>
-                            <div class="v-tag">Computer Vision</div>
-                        </div>
+                    <div class="visual-card" id="card-2" style="border-top: 4px solid var(--accent-blue);">
+                        <i class="fas fa-baseball-bat-ball" style="color: var(--accent-blue);"></i>
+                        <h3>CricVision</h3>
+                        <p style="color: #888; margin-top: 10px;">Live Play Store App using Pose Estimation.</p>
                     </div>
 
-                    <div class="visual-card" id="card-3" style="border-top: 4px solid var(--accent-cyan);">
-                        <i class="fas fa-shield-halved visual-icon" style="color: var(--accent-cyan);"></i>
-                        <div>
-                            <h3 style="font-size: 2rem; margin-bottom: 10px;">SteganoSafe</h3>
-                            <p style="color: #888; margin-bottom: 15px;">AES-256 Encrypted Steganography Tool.</p>
-                            <div class="v-tag">Cybersecurity</div>
-                        </div>
+                    <div class="visual-card" id="card-3" style="border-top: 4px solid var(--accent-green);">
+                        <i class="fas fa-shield-halved" style="color: var(--accent-green);"></i>
+                        <h3>SteganoSafe</h3>
+                        <p style="color: #888; margin-top: 10px;">AES-256 Encrypted Steganography Tool.</p>
                     </div>
 
                 </div>
@@ -402,81 +402,130 @@
         </section>
 
         <section id="experience" class="bento-section">
-            <h2 class="section-headline">Career Trajectory</h2>
+            <div class="section-header">Career Data</div>
             
             <div class="bento-grid">
                 
-                <div class="bento-card span-2 span-2-row">
-                    <div class="b-title">Professional Experience</div>
+                <div class="card span-2">
+                    <div class="card-title"><i class="fas fa-briefcase"></i> Experience</div>
                     
-                    <div class="timeline-item">
-                        <div class="t-role">AI/ML Intern (Computer Vision)</div>
-                        <div class="t-company">Bosc Tech Labs • Nov 2025 - Present</div>
-                        <p style="font-size: 0.85rem; color: #aaa; margin-top: 5px;">Developing "PrepVault" (GenAI) and "CricVision" (CV App). Optimizing CNNs for edge devices.</p>
+                    <div class="exp-item current">
+                        <div class="role">AI/ML Intern (Computer Vision)</div>
+                        <span class="company">Bosc Tech Labs • Nov 2025 – Present</span>
+                        <ul class="bullets">
+                            <li>Developing "PrepVault" GenAI video engine.</li>
+                            <li>Engineered "CricVision" sports analytics app using Pose Estimation.</li>
+                            <li>Optimizing CNN architectures for edge deployment.</li>
+                        </ul>
                     </div>
 
-                    <div class="timeline-item">
-                        <div class="t-role">Desktop Support Engineer</div>
-                        <div class="t-company">Hyperlink IT System • Jul 2025 - Present</div>
+                    <div class="exp-item">
+                        <div class="role">Desktop Support Engineer</div>
+                        <span class="company">Hyperlink IT System • Jul 2025 – Nov 2025</span>
+                        <ul class="bullets">
+                            <li>Maintained system security and hardware optimization.</li>
+                        </ul>
                     </div>
 
-                    <div class="timeline-item">
-                        <div class="t-role">Cybersecurity Manager (Intern)</div>
-                        <div class="t-company">PurpleRain TechSafe • Feb 2025 - Jun 2025</div>
-                        <p style="font-size: 0.85rem; color: #aaa; margin-top: 5px;">Conducted VAPT using Burp Suite & SQLMap.</p>
+                    <div class="exp-item">
+                        <div class="role">Cybersecurity Manager (Intern)</div>
+                        <span class="company">PurpleRain TechSafe • Feb 2025 – Jun 2025</span>
+                        <ul class="bullets">
+                            <li>Conducted VAPT on web apps using Burp Suite & SQLMap.</li>
+                        </ul>
                     </div>
                 </div>
 
-                <div class="bento-card">
-                    <div class="b-title" style="color: var(--accent-primary);">100% Score</div>
-                    <div class="b-sub">Advent of Cyber 2024</div>
-                    <div style="margin-top: auto; font-size: 3rem; font-weight: 700;">Rank 1448</div>
+                <div class="card">
+                    <div class="card-title"><i class="fas fa-trophy"></i> Achievements</div>
+                    
+                    <div style="margin-bottom: 25px;">
+                        <div style="font-size: 2.5rem; font-weight: 700; color: var(--accent-orange);">1448</div>
+                        <div style="font-size: 0.8rem; color: #888;">Rank out of 143,086 (Advent of Cyber)</div>
+                    </div>
+
+                    <div style="margin-bottom: 25px;">
+                        <div style="font-size: 2.5rem; font-weight: 700; color: #fff;">Top 20%</div>
+                        <div style="font-size: 0.8rem; color: #888;">Global Rank on TryHackMe</div>
+                    </div>
+
+                    <iframe src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=2619385" style='border:none; width:100%; height:150px;'></iframe>
                 </div>
 
-                <div class="bento-card">
-                    <div class="b-title" style="color: var(--accent-purple);">Certifications</div>
-                    <ul style="font-size: 0.85rem; color: #ccc; line-height: 1.8;">
-                        <li>• Certified Network Security Practitioner</li>
-                        <li>• IBM Cybersecurity Fundamentals</li>
-                        <li>• Prompt Engineering (Coursera)</li>
+                <div class="card span-3">
+                    <div class="card-title"><i class="fas fa-code"></i> Technical Stack</div>
+                    
+                    <div class="skill-group">
+                        <div class="skill-label">Security Tools</div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Burp Suite</span> <span class="skill-tag">Nmap</span>
+                            <span class="skill-tag">Wireshark</span> <span class="skill-tag">SQLMap</span>
+                            <span class="skill-tag">Metasploit</span> <span class="skill-tag">OWASP ZAP</span>
+                            <span class="skill-tag">Kali Linux</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-group">
+                        <div class="skill-label">Development & AI</div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Python</span> <span class="skill-tag">OpenCV</span>
+                            <span class="skill-tag">PyTorch</span> <span class="skill-tag">YOLOv8</span>
+                            <span class="skill-tag">Bash Scripting</span> <span class="skill-tag">Docker</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card span-2" id="certifications">
+                    <div class="card-title"><i class="fas fa-certificate"></i> Certifications</div>
+                    
+                    <div class="cert-item">
+                        <div>
+                            <div class="cert-name">Certified Network Security Practitioner (CNSP)</div>
+                            <div class="cert-meta">Passed with Merit • Jan 2025</div>
+                        </div>
+                        <a href="https://candidate.speedexam.net/certificate.aspx?SSTATE=am4131EniU8ntjp4bO5mXRTcxhSYYbHvMp/7NNjZI0Fig3VVmXBPo7tnybqRym5rLAh5m8/L7mfRubFOmS+1dj9ISarRzbIhMckYLtLwBEs=" target="_blank" class="cert-link">View</a>
+                    </div>
+
+                    <div class="cert-item">
+                        <div>
+                            <div class="cert-name">IBM Cyber-Security Fundamentals</div>
+                            <div class="cert-meta">Top 10% Rank • Oct 2023</div>
+                        </div>
+                        <a href="#" class="cert-link">View</a>
+                    </div>
+
+                    <div class="cert-item">
+                        <div>
+                            <div class="cert-name">Prompt Engineering Certification</div>
+                            <div class="cert-meta">Coursera (100%) • Dec 2023</div>
+                        </div>
+                        <a href="#" class="cert-link">View</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title"><i class="fas fa-graduation-cap"></i> Education</div>
+                    <div style="font-weight: 600; font-size: 1rem;">B.Tech in CS & Engineering</div>
+                    <div style="color: var(--accent-blue); font-size: 0.9rem; margin-bottom: 10px;">Darshan University</div>
+                    <ul class="bullets">
+                        <li>2021 - 2025</li>
+                        <li>CGPA: 7.10/10</li>
+                        <li>Specialization: Network Security</li>
                     </ul>
-                </div>
-
-                <div class="bento-card span-2">
-                    <div class="b-title">Technical Arsenal</div>
-                    <div class="skill-cloud">
-                        <span class="skill-pill">Python</span>
-                        <span class="skill-pill">OpenCV</span>
-                        <span class="skill-pill">PyTorch</span>
-                        <span class="skill-pill">YOLOv8</span>
-                        <span class="skill-pill">Burp Suite</span>
-                        <span class="skill-pill">Kali Linux</span>
-                        <span class="skill-pill">Nmap</span>
-                        <span class="skill-pill">Wireshark</span>
-                        <span class="skill-pill">Docker</span>
-                    </div>
-                </div>
-
-                <div class="bento-card span-2" style="background: linear-gradient(45deg, #1c1c1e, #000);">
-                    <div class="b-title">Let's Connect</div>
-                    <div class="b-sub">Open for collaborations and security audits.</div>
-                    <div style="margin-top: auto;">
-                        <a href="mailto:adityanagariyav@gmail.com" style="font-size: 1.2rem; color: #fff; font-weight: 600;">adityanagariyav@gmail.com ↗</a>
-                    </div>
                 </div>
 
             </div>
         </section>
 
-        <footer style="padding: 60px 80px; border-top: 1px solid var(--border); color: var(--text-secondary); font-size: 0.9rem;">
-            <p>© 2026 Aditya Nagariya. Built with Zero Hallucinations.</p>
+        <footer style="padding: 60px 8%; background: #050507; text-align: center; color: var(--text-secondary); font-size: 0.9rem;">
+            <p>&copy; 2026 Aditya Nagariya. Built with Zero Hallucinations.</p>
         </footer>
 
-    </div>
+    </main>
 
     <script>
-        // Simple Intersection Logic to switch cards in the Sticky Section
-        // This simulates the Apple product page "scroll to reveal" without heavy libraries
+        // ROBUST SCROLL INTERACTION (APPLE STYLE)
+        // Uses purely scroll position to determine which card to show
         
         const stickySection = document.querySelector('.sticky-wrapper');
         const cards = [
@@ -485,54 +534,94 @@
             document.getElementById('card-3')
         ];
         
-        const texts = document.querySelector('.project-text-side');
+        // Data for text swapping
+        const projectData = [
+            { 
+                title: "PrepVault", 
+                desc: "A proprietary Generative AI engine competing with ElevenLabs. Features high-fidelity voice cloning and lip-sync technology.", 
+                color: "#bf5af2",
+                stack: ["Generative AI", "Wav2Lip", "Python"]
+            },
+            { 
+                title: "CricVision", 
+                desc: "Real-time sports analytics mobile app. Uses Computer Vision (OpenCV/Pose Estimation) to analyze player mechanics.", 
+                color: "#2997ff",
+                stack: ["Computer Vision", "Android", "AI"]
+            },
+            { 
+                title: "SteganoSafe", 
+                desc: "Secure file-hiding tool using AES-256 encryption. Demonstrates the intersection of data security and software engineering.", 
+                color: "#30d158",
+                stack: ["Cybersecurity", "Cryptography", "Python"]
+            }
+        ];
         
+        // DOM Elements to update
+        const domTitle = document.getElementById('p-title');
+        const domDesc = document.getElementById('p-desc');
+        const domStack = document.getElementById('p-stack');
+
         window.addEventListener('scroll', () => {
+            if (window.innerWidth <= 1024) return; // Disable on mobile
+
             const sectionTop = stickySection.offsetTop;
             const sectionHeight = stickySection.offsetHeight;
             const scrollY = window.scrollY;
             
-            // Calculate progress through the sticky section (0 to 1)
+            // Calculate progress (0.0 to 1.0) through the sticky section
             let progress = (scrollY - sectionTop) / (sectionHeight - window.innerHeight);
             
-            // Clamp progress
+            // Bounds check
             if (progress < 0) progress = 0;
             if (progress > 1) progress = 1;
             
-            // Logic to switch cards based on progress
-            // 0 - 0.33 : Card 1
-            // 0.33 - 0.66 : Card 2
-            // 0.66 - 1.0 : Card 3
+            // Determine active index based on progress segments
+            let activeIndex = 0;
+            if (progress > 0.33) activeIndex = 1;
+            if (progress > 0.66) activeIndex = 2;
             
-            resetCards();
+            // Update Visuals
+            cards.forEach((card, index) => {
+                if (index === activeIndex) {
+                    card.classList.add('active');
+                } else {
+                    card.classList.remove('active');
+                }
+            });
             
-            if (progress < 0.33) {
-                cards[0].classList.add('active');
-                updateText("PrepVault", "Generative AI Engine", "Compelling voice cloning & lip-sync technology.", "#bf5af2");
-            } else if (progress < 0.66) {
-                cards[1].classList.add('active');
-                updateText("CricVision", "Sports Analytics App", "Real-time pose estimation on the Play Store.", "#0a84ff");
-            } else {
-                cards[2].classList.add('active');
-                updateText("SteganoSafe", "Cybersecurity Tool", "AES-256 Encrypted Steganography.", "#64d2ff");
+            // Update Text (Only if changed to prevent flicker)
+            if (domTitle.innerText !== projectData[activeIndex].title) {
+                domTitle.innerText = projectData[activeIndex].title;
+                domTitle.style.color = projectData[activeIndex].color;
+                domDesc.innerText = projectData[activeIndex].desc;
+                
+                // Update Tags
+                domStack.innerHTML = projectData[activeIndex].stack
+                    .map(tech => `<span class="tech-tag">${tech}</span>`)
+                    .join('');
             }
         });
+        
+        // Highlight Sidebar on Scroll
+        const sections = document.querySelectorAll('section');
+        const navItems = document.querySelectorAll('.nav-item');
 
-        function resetCards() {
-            cards.forEach(card => card.classList.remove('active'));
-        }
-
-        function updateText(title, sub, desc, color) {
-            const titleEl = document.querySelector('.sticky-head');
-            const subEl = document.querySelector('.sticky-title');
-            const descEl = document.querySelector('.sticky-desc');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
             
-            // Simple fade effect could be added here, but direct swap is faster/cleaner like Apple's snappy transitions
-            titleEl.innerText = title;
-            titleEl.style.color = color;
-            subEl.innerText = sub;
-            descEl.innerText = desc;
-        }
+            navItems.forEach(li => {
+                li.classList.remove('active');
+                if (li.getAttribute('href').includes(current)) {
+                    li.classList.add('active');
+                }
+            });
+        });
     </script>
 </body>
 </html>
